@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timaya — Energy God Tour · WalletWise Events</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #5A27CC;
+      --primary-light: #f0ebff;
+      --black: #404040;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #eeeeee;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --red: #dc2626;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --radius-card: 16px;
+      --radius-pill: 100px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 72px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--black);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-back:hover { color: var(--primary); }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      filter: grayscale(30%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.75) 100%);
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 40px;
+      left: 48px;
+      right: 48px;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .past-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .hero-meta-item {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .hero-ticket-btn {
+      display: none;
+      width: fit-content;
+      margin-top: 16px;
+      background: var(--white);
+      color: var(--black);
+      border-radius: var(--radius-pill);
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .stat-pill {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-pill);
+      min-width: 112px;
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    .stat-pill .num {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      display: block;
+    }
+
+    .stat-pill .lbl {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ─── BODY LAYOUT ─────────────────────────────────── */
+    .body {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ─── LEFT ────────────────────────────────────────── */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--gray-200);
+      margin: 36px 0;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--gray-500);
+    }
+
+    /* Photo gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--gray-200);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+      aspect-ratio: unset;
+    }
+
+    /* Highlights */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .highlight-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: left;
+    }
+
+    .highlight-icon {
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .highlight-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--black);
+      display: block;
+    }
+
+    .highlight-lbl {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* Reviews */
+    .reviews { display: flex; flex-direction: column; gap: 16px; }
+
+    .review-card {
+      border: 1.5px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .review-name { font-size: 14px; font-weight: 600; }
+    .review-date { font-size: 12px; color: var(--gray-400); }
+
+    .review-stars { color: #f59e0b; font-size: 13px; margin-bottom: 6px; }
+
+    .review-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--gray-500);
+    }
+
+    /* ─── RIGHT SIDEBAR ───────────────────────────────── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .info-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-card);
+      padding: 24px;
+    }
+
+    .info-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gray-500);
+      margin-bottom: 16px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 14px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row svg { flex-shrink: 0; margin-top: 1px; color: var(--black); }
+    .info-row-label { font-size: 14px; color: var(--gray-400); margin-bottom: 2px; }
+    .info-row-value { font-weight: 500; color: var(--black); }
+
+    /* Lineup */
+    .lineup {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .artist-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .artist-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--gray-200);
+      flex-shrink: 0;
+    }
+
+    .artist-name { font-size: 14px; font-weight: 600; }
+    .artist-role { font-size: 12px; color: var(--gray-500); }
+
+    .map-card {
+      display: none;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      min-height: 340px;
+    }
+
+    .map-preview {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+        var(--gray-100);
+      background-size: 34px 34px;
+    }
+
+    .map-preview::before,
+    .map-preview::after {
+      content: '';
+      position: absolute;
+      background: var(--gray-300);
+      border-radius: var(--radius-pill);
+      opacity: 0.75;
+    }
+
+    .map-preview::before {
+      width: 150%;
+      height: 16px;
+      left: -28px;
+      top: 54px;
+      transform: rotate(-14deg);
+    }
+
+    .map-preview::after {
+      width: 16px;
+      height: 150%;
+      left: 58%;
+      top: -30px;
+      transform: rotate(18deg);
+    }
+
+    .map-pin {
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      z-index: 2;
+      width: 34px;
+      height: 34px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    }
+
+    .map-details {
+      padding: 12px 16px 14px;
+    }
+
+    .map-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .map-address {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--gray-500);
+      margin-bottom: 12px;
+    }
+
+    .map-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    /* Upcoming CTA */
+    .upcoming-cta {
+      background: var(--primary);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .upcoming-cta p {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .upcoming-cta h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .btn-upcoming {
+      display: block;
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-upcoming:hover { opacity: 0.88; }
+
+    body:not(.is-upcoming) .upcoming-cta {
+      display: none;
+    }
+
+    .has-sidebar-stats .sidebar .info-card:first-of-type { order: 1; }
+    .has-sidebar-stats .sidebar .hero-stats { order: 2; }
+    .has-sidebar-stats .sidebar .info-card:nth-of-type(2) { order: 4; }
+    .has-sidebar-stats .sidebar .upcoming-cta { order: 5; }
+    .is-upcoming .map-card { display: block; }
+    .is-upcoming .sidebar .upcoming-cta { order: 4; }
+    .is-upcoming .sidebar .info-card:nth-of-type(2) { order: 5; }
+    .is-upcoming .hero-ticket-btn { display: inline-flex; }
+
+    .is-upcoming .hero-content {
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .is-upcoming .hero-content > div:first-child { max-width: 660px; }
+
+    .has-sidebar-stats .sidebar .hero-stats,
+    .has-sidebar-stats .detail-panels .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .has-sidebar-stats .sidebar .stat-pill,
+    .has-sidebar-stats .detail-panels .stat-pill {
+      min-width: 0;
+      padding: 16px;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      backdrop-filter: none;
+      border-radius: var(--radius-card);
+    }
+
+    .has-sidebar-stats .sidebar .stat-pill .num,
+    .has-sidebar-stats .detail-panels .stat-pill .num {
+      color: var(--black);
+      font-size: 20px;
+    }
+
+    .has-sidebar-stats .sidebar .stat-pill .lbl,
+    .has-sidebar-stats .detail-panels .stat-pill .lbl {
+      color: var(--gray-500);
+      font-size: 12px;
+    }
+
+    .detail-panels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .detail-panels .lineup-card {
+      grid-column: 1 / -1;
+    }
+
+    .past-lineup-slot {
+      margin-top: 28px;
+    }
+
+    .booking-form {
+      display: none;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      position: sticky;
+      top: 96px;
+    }
+
+    .booking-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
+    }
+
+    .booking-subtitle {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 26px;
+    }
+
+    .booking-section-label,
+    .booking-form label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .booking-ticket-types {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .booking-ticket-type {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .booking-ticket-type.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .booking-ticket-type.sold-out {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .booking-ticket-left {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .booking-ticket-name {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .booking-ticket-desc {
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+
+    .booking-ticket-price {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--black);
+      margin-top: 8px;
+    }
+
+    .avail-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    .avail-badge.ok { background: var(--green-light); color: var(--green); }
+    .avail-badge.low { background: #fff7ed; color: #c2410c; }
+    .avail-badge.sold { background: var(--gray-200); color: var(--gray-500); }
+
+    .qty-stepper {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .qty-btn {
+      width: 34px;
+      height: 34px;
+      border: none;
+      background: transparent;
+      color: var(--black);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .qty-btn:disabled {
+      color: var(--gray-300);
+      cursor: default;
+    }
+
+    .qty-value {
+      width: 32px;
+      border-left: 1px solid var(--gray-200);
+      border-right: 1px solid var(--gray-200);
+      color: var(--black);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 34px;
+      text-align: center;
+    }
+
+    .booking-field {
+      margin-bottom: 18px;
+    }
+
+    .booking-field input {
+      width: 100%;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 13px 14px;
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px;
+      outline: none;
+    }
+
+    .booking-field input:focus { border-color: var(--primary); }
+    .booking-field input::placeholder { color: var(--gray-400); }
+    .booking-field input.error { border-color: var(--red); }
+
+    .field-error {
+      display: none;
+      margin-top: 5px;
+      color: var(--red);
+      font-size: 12px;
+    }
+
+    .booking-divider {
+      height: 1px;
+      background: var(--gray-200);
+      margin: 24px 0;
+    }
+
+    .booking-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .booking-summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--gray-500);
+      font-size: 14px;
+    }
+
+    .booking-summary-row.total {
+      color: var(--black);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .terms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--gray-500);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .terms-row input {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .booking-form .terms-row label {
+      margin-bottom: 0;
+      color: var(--gray-500);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.5;
+      text-transform: none;
+    }
+
+    .terms-row a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .booking-submit {
+      width: 100%;
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 15px;
+      background: var(--primary);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .booking-submit:disabled {
+      background: var(--gray-300);
+      cursor: not-allowed;
+    }
+
+    .booking-note {
+      margin-top: 14px;
+      color: var(--gray-400);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 200;
+      transform: translateY(16px);
+      opacity: 0;
+      pointer-events: none;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .is-upcoming .body {
+      max-width: 1320px;
+      grid-template-columns: minmax(0, 1fr) 420px;
+    }
+
+    .is-upcoming .booking-form { display: block; }
+    .is-upcoming .hero-ticket-btn,
+    .is-upcoming .upcoming-cta,
+    .is-upcoming .gallery,
+    .is-upcoming .reviews {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-back">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      Back
+    </a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <img src="wizkid-live.webp" alt="Timaya Energy God Tour" />
+  <div class="hero-content">
+    <div>
+      <div class="past-badge">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+          <circle cx="5" cy="5" r="5"/>
+        </svg>
+        Past event
+      </div>
+      <h1 class="hero-title">Timaya —<br>Energy God Tour</h1>
+      <div class="hero-meta-row">
+        <span class="hero-meta-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          Eko Hotel, Victoria Island, Lagos
+        </span>
+        <span class="hero-meta-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          Saturday, 1 February 2025
+        </span>
+        <span class="hero-meta-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+          7:00 PM – 12:00 AM
+        </span>
+      </div>
+      <a href="#" class="hero-ticket-btn">Get tickets →</a>
+      <div class="hero-stats">
+        <div class="stat-pill">
+          <span class="num">2,400</span>
+          <span class="lbl">Attended</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num">4.8</span>
+          <span class="lbl">Avg rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BODY ──────────────────────────────────────────────── -->
+<div class="body">
+
+  <!-- LEFT -->
+  <div>
+
+    <!-- Highlights -->
+    <div class="section-title">Event highlights</div>
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <span class="highlight-num">2,400</span>
+        <div class="highlight-lbl">Tickets sold</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <span class="highlight-num">4.8 / 5</span>
+        <div class="highlight-lbl">Crowd rating</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <span class="highlight-num">18</span>
+        <div class="highlight-lbl">Songs performed</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- About -->
+    <div class="section-title">About this event</div>
+    <p class="about-text">
+      The Energy God Tour was one of Lagos's most electrifying nights of 2025. Timaya brought his signature high-energy performance to the Eko Hotel Grand Ballroom, delivering an unforgettable 3-hour set packed with his biggest hits — from <em>Dem Mama</em> to <em>Chulo Vibes</em>. The crowd was sold out weeks in advance, with fans travelling from Abuja, Port Harcourt and beyond.
+      <br><br>
+      Special guest appearances from Patoranking and Small Doctor sent the crowd into a frenzy. The production was a step above anything seen on the Lagos circuit this year — pyrotechnics, live band, and a light show that had everyone talking.
+    </p>
+    <div class="detail-panels"></div>
+
+    <div class="divider"></div>
+
+    <!-- Gallery -->
+    <div class="section-title">Photo gallery</div>
+    <div class="gallery">
+      <div class="gallery-item tall">
+        <img src="h3.jpeg" alt="Event photo" />
+      </div>
+      <div class="gallery-item">
+        <img src="h1.jpeg" alt="Event photo" />
+      </div>
+      <div class="gallery-item">
+        <img src="h2.jpeg" alt="Event photo" />
+      </div>
+      <div class="gallery-item">
+        <img src="wizkid-live.webp" alt="Event photo" />
+      </div>
+      <div class="gallery-item">
+        <img src="1920x1072mv.jpg" alt="Event photo" />
+      </div>
+    </div>
+    <div class="past-lineup-slot"></div>
+
+    <div class="divider"></div>
+
+    <!-- Reviews -->
+    <div class="section-title">What attendees said</div>
+    <div class="reviews">
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">AO</div>
+          <div>
+            <div class="review-name">Adaeze Okonkwo</div>
+            <div class="review-date">2 Feb 2025</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Absolutely insane night. Timaya performed for almost 3 hours straight — the energy never dropped. The Patoranking surprise was the highlight of my year. Already waiting for the next one!</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">KA</div>
+          <div>
+            <div class="review-name">Kunle Adeyemi</div>
+            <div class="review-date">3 Feb 2025</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">Great show, great crowd. Sound system was top notch. Only issue was the queue at entry — took about 45 minutes to get in. Once inside though, it was worth every second.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">FB</div>
+          <div>
+            <div class="review-name">Fatima Bello</div>
+            <div class="review-date">4 Feb 2025</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Best concert I've attended in Lagos in years. The production value was insane — those pyrotechnics during Chulo Vibes? Unmatched. WalletWise made booking so easy too.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- Event info -->
+    <div class="info-card">
+      <div class="info-card-title">Event info</div>
+      <div class="info-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+        <div>
+          <div class="info-row-label">Date</div>
+          <div class="info-row-value">Saturday, 1 February 2025</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        <div>
+          <div class="info-row-label">Time</div>
+          <div class="info-row-value">7:00 PM – 12:00 AM</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <div>
+          <div class="info-row-label">Venue</div>
+          <div class="info-row-value">Eko Hotel Grand Ballroom, Victoria Island, Lagos</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <path d="M16 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+        </svg>
+        <div>
+          <div class="info-row-label">Ticket price</div>
+          <div class="info-row-value">₦18,000 · Sold out</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <div>
+          <div class="info-row-label">Attendance</div>
+          <div class="info-row-value">2,400 people</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-card">
+      <div class="map-preview">
+        <div class="map-pin">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="map-details">
+        <div class="map-title">Event location</div>
+        <div class="map-address">Eko Convention Centre, Victoria Island, Lagos</div>
+        <a class="map-link" href="#" target="_blank" rel="noopener">Open in Maps →</a>
+      </div>
+    </div>
+
+    <!-- Lineup -->
+    <div class="info-card">
+      <div class="info-card-title">Lineup</div>
+      <div class="lineup">
+        <div class="artist-row">
+          <img class="artist-img" src="wizkid-live.webp" alt="Timaya" />
+          <div>
+            <div class="artist-name">Timaya</div>
+            <div class="artist-role">Headliner</div>
+          </div>
+        </div>
+        <div class="artist-row">
+          <img class="artist-img" src="1920x1072mv.jpg" alt="Patoranking" />
+          <div>
+            <div class="artist-name">Patoranking</div>
+            <div class="artist-role">Special guest</div>
+          </div>
+        </div>
+        <div class="artist-row">
+          <img class="artist-img" src="shalli.png" alt="Small Doctor" />
+          <div>
+            <div class="artist-name">Small Doctor</div>
+            <div class="artist-role">Special guest</div>
+          </div>
+        </div>
+        <div class="artist-row">
+          <img class="artist-img" src="TONIGHT-@temsbaby.jpg" alt="DJ Neptune" />
+          <div>
+            <div class="artist-name">DJ Neptune</div>
+            <div class="artist-role">DJ set</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming CTA -->
+    <div class="upcoming-cta">
+      <p>Missed this one?</p>
+      <h3>Burna Boy is up next — don't miss out</h3>
+      <a href="#" class="btn-upcoming">Get tickets →</a>
+    </div>
+
+    <div class="booking-form">
+      <div class="booking-title">Book your ticket</div>
+      <div class="booking-subtitle">Select your ticket type and enter your details to finish booking.</div>
+
+      <div class="booking-section-label">Select ticket type</div>
+      <div class="booking-ticket-types" id="booking-ticket-types"></div>
+
+      <div class="booking-field">
+        <label for="booking-name">Full name</label>
+        <input id="booking-name" type="text" placeholder="e.g. Chidi Okeke" oninput="validateBookingForm()" />
+        <div class="field-error" id="booking-name-error">Please enter your full name.</div>
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-email">Email address</label>
+        <input id="booking-email" type="email" placeholder="you@example.com" oninput="validateBookingForm()" />
+        <div class="field-error" id="booking-email-error">Please enter a valid email address.</div>
+      </div>
+
+      <div class="booking-field">
+        <label for="booking-phone">Phone number</label>
+        <input id="booking-phone" type="tel" placeholder="+234 800 000 0000" oninput="validateBookingForm()" />
+        <div class="field-error" id="booking-phone-error">Please enter a valid phone number.</div>
+      </div>
+
+      <div class="booking-divider"></div>
+
+      <div class="booking-summary" id="booking-summary">
+        <div class="booking-summary-row" id="booking-empty" style="font-style: italic;">
+          <span>No tickets selected yet</span>
+        </div>
+        <div class="booking-divider" style="margin: 4px 0;"></div>
+        <div class="booking-summary-row">
+          <span>Service fee (5%)</span>
+          <span id="booking-fee">₦0</span>
+        </div>
+        <div class="booking-divider" style="margin: 4px 0;"></div>
+        <div class="booking-summary-row total">
+          <span>Total</span>
+          <span id="booking-total">₦0</span>
+        </div>
+      </div>
+
+      <div class="terms-row">
+        <input type="checkbox" id="booking-terms" onchange="validateBookingForm()" />
+        <label for="booking-terms">I agree to the <a href="#">terms and conditions</a> and <a href="#">refund policy</a>. no refunds within 48hrs of the event.</label>
+      </div>
+
+      <button class="booking-submit" id="booking-submit" disabled onclick="submitBooking()">Pay ₦0</button>
+      <p class="booking-note">Your ticket will be sent to your email address.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="booking-toast">You will be redirected soon.</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('status');
+  const eventKey = params.get('event') || 'timaya';
+
+  const pastEvents = {
+    timaya: {
+      title: 'Timaya —<br>Energy God Tour',
+      documentTitle: 'Timaya — Energy God Tour · WalletWise Events',
+      badge: 'Past event · Sat 1 Feb 2025',
+      image: 'wizkid-live.webp',
+      alt: 'Timaya Energy God Tour',
+      venueShort: 'Eko Hotel, Victoria Island, Lagos',
+      time: '7:00 PM - 12:00 AM',
+      date: 'Saturday, 1 February 2025',
+      venue: 'Eko Hotel Grand Ballroom, Victoria Island, Lagos',
+      price: '₦18,000 · Sold out',
+      attendance: '2,400 people',
+      attended: '2,400',
+      rating: '4.8',
+      capacity: '2,400',
+      ticketsLabel: 'Tickets sold',
+      ratingLabel: 'Crowd rating',
+      songs: '18',
+      about: `The Energy God Tour was one of Lagos's most electrifying nights of 2025. Timaya brought his signature high-energy performance to the Eko Hotel Grand Ballroom, delivering an unforgettable 3-hour set packed with his biggest hits — from <em>Dem Mama</em> to <em>Chulo Vibes</em>. The crowd was sold out weeks in advance, with fans travelling from Abuja, Port Harcourt and beyond.<br><br>Special guest appearances from Patoranking and Small Doctor sent the crowd into a frenzy. The production was a step above anything seen on the Lagos circuit this year — pyrotechnics, live band, and a light show that had everyone talking.`,
+      artists: [
+        ['wizkid-live.webp', 'Timaya', 'Headliner'],
+        ['1920x1072mv.jpg', 'Patoranking', 'Special guest'],
+        ['shalli.png', 'Small Doctor', 'Special guest'],
+        ['TONIGHT-@temsbaby.jpg', 'DJ Neptune', 'DJ set']
+      ]
+    },
+    rema: {
+      title: 'Rema —<br>Calm Down World Tour',
+      documentTitle: 'Rema — Calm Down World Tour · WalletWise Events',
+      badge: 'Past event · Fri 14 Mar 2025',
+      image: '1920x1072mv.jpg',
+      alt: 'Rema Calm Down World Tour',
+      venueShort: 'Balmoral Hall, Lagos',
+      time: '8:00 PM - 12:30 AM',
+      date: 'Friday, 14 March 2025',
+      venue: 'Balmoral Hall, Federal Palace Hotel, Lagos',
+      price: '₦22,000',
+      attendance: '3,100 people',
+      attended: '3,100',
+      rating: '4.7',
+      capacity: '3,100',
+      ticketsLabel: 'Tickets sold',
+      ratingLabel: 'Crowd rating',
+      songs: '20',
+      about: `Rema's Lagos stop brought the Calm Down World Tour home with a high-production arena set, heavy crowd sing-alongs, and a fast-paced run through his biggest records.<br><br>The night leaned into sharp lighting, dance breaks, and a packed floor that stayed loud from the opener through the final encore.`,
+      artists: [
+        ['1920x1072mv.jpg', 'Rema', 'Headliner'],
+        ['shalli.png', 'Shalli', 'Opening act'],
+        ['TONIGHT-@temsbaby.jpg', 'DJ Consequence', 'DJ set'],
+        ['h1.jpeg', 'Hype crew', 'Stage support'],
+        ['h2.jpeg', 'Guest vocalist', 'Special guest'],
+        ['h3.jpeg', 'Dance crew', 'Stage performance']
+      ]
+    },
+    olamide: {
+      title: 'Olamide —<br>YBNL Nite',
+      documentTitle: 'Olamide — YBNL Nite · WalletWise Events',
+      badge: 'Past event · Sat 22 Mar 2025',
+      image: 'burna-boy-apple-music-live-2023-billboard-1548.jpg',
+      alt: 'Olamide YBNL Nite',
+      venueShort: 'Landmark Beach, Lagos',
+      time: '7:30 PM - 1:00 AM',
+      date: 'Saturday, 22 March 2025',
+      venue: 'Landmark Beach, Victoria Island, Lagos',
+      price: '₦10,000',
+      attendance: '4,800 people',
+      attended: '4,800',
+      rating: '4.6',
+      capacity: '4,800',
+      ticketsLabel: 'Tickets sold',
+      ratingLabel: 'Crowd rating',
+      songs: '24',
+      about: `YBNL Nite turned Landmark Beach into a full-label celebration, with Olamide anchoring a long set of street anthems, fan favorites, and guest moments.<br><br>The crowd energy stayed loose and loud, with the biggest reactions coming during the late-night run of back-to-back classics.`,
+      artists: [
+        ['burna-boy-apple-music-live-2023-billboard-1548.jpg', 'Olamide', 'Headliner'],
+        ['h2.jpeg', 'YBNL guests', 'Special guests'],
+        ['shalli.png', 'Street pop opener', 'Opening act'],
+        ['TONIGHT-@temsbaby.jpg', 'DJ Enimoney', 'DJ set']
+      ]
+    },
+    asa: {
+      title: 'Asa —<br>Risen Live Experience',
+      documentTitle: 'Asa — Risen Live Experience · WalletWise Events',
+      badge: 'Past event · Sun 6 Apr 2025',
+      image: 'TONIGHT-@temsbaby.jpg',
+      alt: 'Asa Risen Live Experience',
+      venueShort: 'Terra Kulture, Lagos',
+      time: '6:00 PM - 10:30 PM',
+      date: 'Sunday, 6 April 2025',
+      venue: 'Terra Kulture Arena, Victoria Island, Lagos',
+      price: '₦12,000',
+      attendance: '1,200 people',
+      attended: '1,200',
+      rating: '4.9',
+      capacity: '1,200',
+      ticketsLabel: 'Tickets sold',
+      ratingLabel: 'Crowd rating',
+      songs: '16',
+      about: `Asa's Risen Live Experience was a more intimate, seated concert built around vocals, musicianship, and warm stage production.<br><br>The evening moved through acoustic arrangements, soul-heavy moments, and a focused audience that gave every song room to breathe.`,
+      artists: [
+        ['TONIGHT-@temsbaby.jpg', 'Asa', 'Headliner'],
+        ['h3.jpeg', 'Live band', 'Band set'],
+        ['h1.jpeg', 'Acoustic opener', 'Opening act'],
+        ['1920x1072mv.jpg', 'String section', 'Special set'],
+        ['h2.jpeg', 'Percussion section', 'Live set'],
+        ['shalli.png', 'Spoken word guest', 'Special guest']
+      ]
+    },
+    fireboy: {
+      title: 'Fireboy DML —<br>Apollo Lagos',
+      documentTitle: 'Fireboy DML — Apollo Lagos · WalletWise Events',
+      badge: 'Past event · Fri 25 Apr 2025',
+      image: 'shalli.png',
+      alt: 'Fireboy DML Apollo Lagos',
+      venueShort: 'Livespot Festival Grounds',
+      time: '8:00 PM - 12:00 AM',
+      date: 'Friday, 25 April 2025',
+      venue: 'Livespot Festival Grounds, Lagos',
+      price: '₦8,000',
+      attendance: '2,900 people',
+      attended: '2,900',
+      rating: '4.5',
+      capacity: '2,900',
+      ticketsLabel: 'Tickets sold',
+      ratingLabel: 'Crowd rating',
+      songs: '19',
+      about: `Fireboy DML's Apollo Lagos show brought a polished pop-R&B set to Livespot, with fans singing through the slower records and lifting the energy for the club tracks.<br><br>The show balanced live vocals, bright visuals, and a clean stage flow that made the night feel easy to follow.`,
+      artists: [
+        ['shalli.png', 'Fireboy DML', 'Headliner'],
+        ['h2.jpeg', 'Guest vocalist', 'Special guest'],
+        ['TONIGHT-@temsbaby.jpg', 'DJ Spinall', 'DJ set'],
+        ['h1.jpeg', 'Opening performer', 'Opening act'],
+        ['h3.jpeg', 'Live guitarist', 'Band set'],
+        ['1920x1072mv.jpg', 'Guest host', 'Stage host']
+      ]
+    },
+    'femi-kuti': {
+      title: 'Femi Kuti &amp;<br>Positive Force',
+      documentTitle: 'Femi Kuti & Positive Force · WalletWise Events',
+      badge: 'Past event · Fri 2 May 2025',
+      image: 'h2.jpeg',
+      alt: 'Femi Kuti and Positive Force',
+      venueShort: 'New Afrika Shrine, Lagos',
+      time: '7:00 PM - 11:30 PM',
+      date: 'Friday, 2 May 2025',
+      venue: 'New Afrika Shrine, Ikeja, Lagos',
+      price: '₦4,000 · Sold out',
+      attendance: '1,800 people',
+      attended: '1,800',
+      rating: '4.8',
+      capacity: '1,800',
+      ticketsLabel: 'Tickets sold',
+      ratingLabel: 'Crowd rating',
+      songs: '21',
+      about: `Femi Kuti and Positive Force delivered a sold-out Shrine performance rooted in brass, percussion, and long-form Afrobeat arrangements.<br><br>The set felt communal and energetic, with the band driving extended grooves while the audience stayed locked in from start to finish.`,
+      artists: [
+        ['h2.jpeg', 'Femi Kuti', 'Headliner'],
+        ['h1.jpeg', 'Positive Force', 'Live band'],
+        ['1920x1072mv.jpg', 'Afrobeat dancers', 'Stage performance'],
+        ['TONIGHT-@temsbaby.jpg', 'Resident DJ', 'DJ set']
+      ]
+    }
+  };
+
+  const upcomingEvents = {
+    'burna-boy': {
+      title: 'Burna Boy —<br>Live in Lagos',
+      documentTitle: 'Burna Boy — Live in Lagos · WalletWise Events',
+      badge: 'Upcoming event · Fri 16 May 2026',
+      image: 'burna-boy-apple-music-live-2023-billboard-1548.jpg',
+      alt: 'Burna Boy Live in Lagos',
+      venueShort: 'Eko Convention Centre, Victoria Island',
+      time: '8:00 PM - 1:00 AM',
+      date: 'Friday, 16 May 2026',
+      venue: 'Eko Convention Centre, Victoria Island, Lagos',
+      price: 'From ₦25,000',
+      capacity: '3,500 capacity',
+      seatsLeft: '620',
+      fromPrice: '₦25k',
+      tiers: '4',
+      songs: '22+',
+      about: `Burna Boy returns to Lagos for a full-scale live show at Eko Convention Centre, built for fans who want the arena version of his biggest records. Expect a live band, extended production, and a setlist spanning <em>Ye</em>, <em>Last Last</em>, <em>City Boys</em>, and new material.<br><br>Doors open early for check-in and warm-up DJ sets. Ticket holders should arrive with a valid booking confirmation and ID so entry stays smooth before the headline performance starts.`,
+      artists: [
+        ['burna-boy-apple-music-live-2023-billboard-1548.jpg', 'Burna Boy', 'Headliner'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest DJ', 'Warm-up set'],
+        ['1920x1072mv.jpg', 'Opening act', 'Special guest'],
+        ['shalli.png', 'Hype host', 'Stage host'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['h3.jpeg', 'Dance crew', 'Stage performance'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['h2.jpeg', 'Dance crew', 'Stage performance']
+      ]
+    },
+    tems: {
+      title: 'Tems —<br>Tonight Live',
+      documentTitle: 'Tems — Tonight Live · WalletWise Events',
+      badge: 'Upcoming event · Sat 17 May 2026',
+      image: 'TONIGHT-@temsbaby.jpg',
+      alt: 'Tems Tonight Live',
+      venueShort: 'Quilox Club, Victoria Island',
+      time: '9:00 PM - 2:00 AM',
+      date: 'Saturday, 17 May 2026',
+      venue: 'Quilox Club, Victoria Island, Lagos',
+      price: 'From ₦15,000',
+      capacity: '1,200 capacity',
+      seatsLeft: '280',
+      fromPrice: '₦15k',
+      tiers: '3',
+      songs: '18+',
+      about: `Tems brings Tonight Live to Victoria Island for a late-night performance built around her strongest vocal moments, intimate production, and a polished club atmosphere.<br><br>The show includes DJ warm-ups, premium table access, and a focused headline set for fans who want a close-room concert experience.`,
+      artists: [
+        ['TONIGHT-@temsbaby.jpg', 'Tems', 'Headliner'],
+        ['h1.jpeg', 'Alté opener', 'Opening act'],
+        ['1920x1072mv.jpg', 'Guest DJ', 'DJ set'],
+        ['shalli.png', 'Host', 'Stage host'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['1920x1072mv.jpg', 'Dance crew', 'Stage performance'],
+        ['h2.jpeg', 'Backing vocalists', 'Live vocals'],
+        ['h3.jpeg', 'Percussionist', 'Live set']
+      ]
+    },
+    wizkid: {
+      title: 'Wizkid —<br>Homecoming Concert',
+      documentTitle: 'Wizkid — Homecoming Concert · WalletWise Events',
+      badge: 'Upcoming event · Thu 22 May 2026',
+      image: 'wizkid-live.webp',
+      alt: 'Wizkid Homecoming Concert',
+      venueShort: 'Tafawa Balewa Square, Lagos',
+      time: '7:00 PM - 12:30 AM',
+      date: 'Thursday, 22 May 2026',
+      venue: 'Tafawa Balewa Square, Lagos',
+      price: 'From ₦30,000',
+      capacity: '5,000 capacity',
+      seatsLeft: '940',
+      fromPrice: '₦30k',
+      tiers: '5',
+      songs: '25+',
+      about: `Wizkid's Homecoming Concert brings a large outdoor Lagos show to Tafawa Balewa Square, with a setlist expected to move from early classics into recent global records.<br><br>Expect expanded staging, guest moments, and a long night designed for a festival-sized crowd.`,
+      artists: [
+        ['wizkid-live.webp', 'Wizkid', 'Headliner'],
+        ['h2.jpeg', 'Afrobeats guest', 'Special guest'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest DJ', 'DJ set'],
+        ['shalli.png', 'Hype host', 'Stage host'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['h3.jpeg', 'Dance crew', 'Stage performance'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['h2.jpeg', 'Dance crew', 'Stage performance']
+      ]
+    },
+    shalli: {
+      title: 'Shalli —<br>Naija Vibes Night',
+      documentTitle: 'Shalli — Naija Vibes Night · WalletWise Events',
+      badge: 'Upcoming event · Sun 25 May 2026',
+      image: 'shalli.png',
+      alt: 'Shalli Naija Vibes Night',
+      venueShort: 'Millennium Park, Abuja',
+      time: '5:00 PM - 10:00 PM',
+      date: 'Sunday, 25 May 2026',
+      venue: 'Millennium Park, Abuja',
+      price: 'Free entry',
+      capacity: '2,000 capacity',
+      seatsLeft: 'Open',
+      fromPrice: 'Free',
+      tiers: '1',
+      songs: '15+',
+      about: `Shalli's Naija Vibes Night is a free outdoor community show in Abuja, mixing live performances, DJ sets, and an easy evening park atmosphere.<br><br>Entry is free, but early arrival is recommended because access will depend on venue capacity.`,
+      artists: [
+        ['shalli.png', 'Shalli', 'Headliner'],
+        ['h1.jpeg', 'Local acts', 'Opening performers'],
+        ['TONIGHT-@temsbaby.jpg', 'Resident DJ', 'DJ set'],
+        ['1920x1072mv.jpg', 'MC host', 'Stage host'],
+        ['h2.jpeg', 'Community choir', 'Live vocals'],
+        ['h3.jpeg', 'Dance group', 'Stage performance']
+      ]
+    },
+    davido: {
+      title: 'Davido —<br>30 Billion Tour',
+      documentTitle: 'Davido — 30 Billion Tour · WalletWise Events',
+      badge: 'Upcoming event · Fri 30 May 2026',
+      image: '1920x1072mv.jpg',
+      alt: 'Davido 30 Billion Tour',
+      venueShort: 'Mobolaji Johnson Arena, Lagos',
+      time: '8:00 PM - 1:00 AM',
+      date: 'Friday, 30 May 2026',
+      venue: 'Mobolaji Johnson Arena, Lagos',
+      price: 'From ₦20,000',
+      capacity: '4,200 capacity',
+      seatsLeft: '710',
+      fromPrice: '₦20k',
+      tiers: '4',
+      songs: '23+',
+      about: `Davido's 30 Billion Tour stops in Lagos for a high-energy arena show with a hit-heavy set, guest appearances, and premium viewing zones.<br><br>The event is built for a large crowd, with multiple entry lanes and ticket tiers for regular, VIP, and table access.`,
+      artists: [
+        ['1920x1072mv.jpg', 'Davido', 'Headliner'],
+        ['burna-boy-apple-music-live-2023-billboard-1548.jpg', 'Special guest', 'Guest performer'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest DJ', 'DJ set'],
+        ['shalli.png', 'Hype host', 'Stage host'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['h3.jpeg', 'Dance crew', 'Stage performance'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['h2.jpeg', 'Dance crew', 'Stage performance']
+      ]
+    },
+    felabration: {
+      title: 'Felabration<br>2025',
+      documentTitle: 'Felabration 2025 · WalletWise Events',
+      badge: 'Upcoming event · Sat 7 Jun 2026',
+      image: 'h1.jpeg',
+      alt: 'Felabration 2025',
+      venueShort: 'New Afrika Shrine, Lagos',
+      time: '6:00 PM - 2:00 AM',
+      date: 'Saturday, 7 June 2026',
+      venue: 'New Afrika Shrine, Ikeja, Lagos',
+      price: 'From ₦5,000',
+      capacity: '2,500 capacity',
+      seatsLeft: '860',
+      fromPrice: '₦5k',
+      tiers: '2',
+      songs: '30+',
+      about: `Felabration 2025 returns to the New Afrika Shrine with a long night of Afrobeat, live bands, DJs, dancers, and tribute performances.<br><br>The program is built as a festival-style lineup, so guests should expect multiple sets across the evening rather than a single headline-only show.`,
+      artists: [
+        ['h1.jpeg', 'Felabration Band', 'Live band'],
+        ['h2.jpeg', 'Afrobeat guests', 'Special guests'],
+        ['TONIGHT-@temsbaby.jpg', 'Shrine DJ', 'DJ set'],
+        ['1920x1072mv.jpg', 'Dance crew', 'Stage performance'],
+        ['shalli.png', 'Shrine host', 'Stage host'],
+        ['h3.jpeg', 'Percussion crew', 'Live set']
+      ]
+    },
+    'adekunle-gold': {
+      title: 'Adekunle Gold —<br>Catch Me If You Can',
+      documentTitle: 'Adekunle Gold — Catch Me If You Can · WalletWise Events',
+      badge: 'Upcoming event · Fri 13 Jun 2026',
+      image: 'h2.jpeg',
+      alt: 'Adekunle Gold Catch Me If You Can',
+      venueShort: 'EKO Atlantic, Lagos',
+      time: '7:30 PM - 12:00 AM',
+      date: 'Friday, 13 June 2026',
+      venue: 'EKO Atlantic, Lagos',
+      price: 'From ₦12,000',
+      capacity: '3,000 capacity',
+      seatsLeft: '540',
+      fromPrice: '₦12k',
+      tiers: '3',
+      songs: '20+',
+      about: `Adekunle Gold brings Catch Me If You Can to EKO Atlantic with a stylish live show built around pop, highlife, and Afrobeats arrangements.<br><br>Expect a polished visual direction, live-band sections, and a crowd-friendly setlist spanning his biggest eras.`,
+      artists: [
+        ['h2.jpeg', 'Adekunle Gold', 'Headliner'],
+        ['h3.jpeg', 'Guest vocalist', 'Special guest'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest DJ', 'DJ set'],
+        ['shalli.png', 'Host', 'Stage host'],
+        ['h1.jpeg', 'Live band', 'Band set'],
+        ['1920x1072mv.jpg', 'Dance crew', 'Stage performance'],
+        ['h2.jpeg', 'Backing vocalists', 'Live vocals'],
+        ['h3.jpeg', 'Percussionist', 'Live set']
+      ]
+    },
+    'tiwa-savage': {
+      title: 'Tiwa Savage —<br>Water &amp; Garri Night',
+      documentTitle: 'Tiwa Savage — Water & Garri Night · WalletWise Events',
+      badge: 'Upcoming event · Sat 21 Jun 2026',
+      image: 'h3.jpeg',
+      alt: 'Tiwa Savage Water and Garri Night',
+      venueShort: 'Balmoral Hall, Lagos',
+      time: '8:00 PM - 12:30 AM',
+      date: 'Saturday, 21 June 2026',
+      venue: 'Balmoral Hall, Lagos',
+      price: 'From ₦18,000',
+      capacity: '2,200 capacity',
+      seatsLeft: '390',
+      fromPrice: '₦18k',
+      tiers: '4',
+      songs: '19+',
+      about: `Tiwa Savage's Water & Garri Night is a premium Lagos concert centered on vocals, fashion-forward staging, and a smooth late-night atmosphere.<br><br>The show pairs a curated guest list with DJ transitions and a headline set covering fan favorites and newer records.`,
+      artists: [
+        ['h3.jpeg', 'Tiwa Savage', 'Headliner'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest DJ', 'DJ set'],
+        ['h1.jpeg', 'R&B opener', 'Opening act'],
+        ['1920x1072mv.jpg', 'Live band', 'Band set'],
+        ['shalli.png', 'Stage host', 'Host'],
+        ['h2.jpeg', 'Backing vocalists', 'Live vocals']
+      ]
+    }
+  };
+
+  const bookingTicketTiers = {
+    'burna-boy': [
+      ['General Admission', 'Standing area · Full event access', 25000, 10, 48, '48 left', 'ok'],
+      ['VIP', 'Reserved viewing · Lounge access', 50000, 6, 6, 'Only 6 left', 'low'],
+      ['Table for 5', 'Private table · Bottle service included', 120000, 0, 0, 'Sold out', 'sold']
+    ],
+    tems: [
+      ['Regular', 'Floor access · Full event access', 15000, 10, 54, '54 left', 'ok'],
+      ['VIP', 'Priority entry · Lounge access', 35000, 6, 9, 'Only 9 left', 'low'],
+      ['Table for 4', 'Reserved table · Premium service', 150000, 0, 0, 'Sold out', 'sold']
+    ],
+    wizkid: [
+      ['General Admission', 'Standing field access', 30000, 10, 80, '80 left', 'ok'],
+      ['VIP', 'Premium viewing area', 75000, 6, 14, 'Only 14 left', 'low'],
+      ['VVIP', 'Front zone · Premium entrance', 150000, 4, 5, 'Only 5 left', 'low']
+    ],
+    shalli: [
+      ['Free RSVP', 'General park access', 0, 4, 300, '300 left', 'ok'],
+      ['Fast Lane', 'Priority entry queue', 5000, 4, 40, '40 left', 'ok'],
+      ['Group Pass', 'Entry for up to 6 guests', 20000, 0, 0, 'Sold out', 'sold']
+    ],
+    davido: [
+      ['Regular', 'General arena access', 20000, 10, 72, '72 left', 'ok'],
+      ['VIP', 'Premium view · Faster entry', 60000, 6, 12, 'Only 12 left', 'low'],
+      ['Table for 6', 'Reserved table · Bottle service', 180000, 4, 3, 'Only 3 left', 'low']
+    ],
+    felabration: [
+      ['General Admission', 'Shrine floor access', 5000, 10, 120, '120 left', 'ok'],
+      ['Reserved', 'Seated section access', 15000, 6, 24, '24 left', 'ok'],
+      ['Backstage Pass', 'Limited premium access', 50000, 0, 0, 'Sold out', 'sold']
+    ],
+    'adekunle-gold': [
+      ['Regular', 'Standing access', 12000, 10, 66, '66 left', 'ok'],
+      ['VIP', 'Premium viewing zone', 40000, 6, 11, 'Only 11 left', 'low'],
+      ['Meet & Greet', 'Premium access · Photo moment', 90000, 0, 0, 'Sold out', 'sold']
+    ],
+    'tiwa-savage': [
+      ['Regular', 'General hall access', 18000, 10, 44, '44 left', 'ok'],
+      ['VIP', 'Reserved seating · Priority entry', 55000, 6, 8, 'Only 8 left', 'low'],
+      ['VVIP Table', 'Reserved table · Premium service', 160000, 0, 0, 'Sold out', 'sold']
+    ]
+  };
+
+  function renderBookingTickets(key) {
+    const tiers = bookingTicketTiers[key] || bookingTicketTiers['burna-boy'];
+    document.getElementById('booking-ticket-types').innerHTML = tiers.map(([name, desc, price, max, available, badge, badgeType]) => {
+      const soldOut = available === 0;
+      return `
+        <div class="booking-ticket-type${soldOut ? ' sold-out' : ''}" data-price="${price}" data-max="${max}" data-available="${available}">
+          <div class="booking-ticket-left">
+            <span class="booking-ticket-name">${name}<span class="avail-badge ${badgeType}">${badge}</span></span>
+            <span class="booking-ticket-desc">${desc}</span>
+            <span class="booking-ticket-price">${price === 0 ? 'Free' : `₦${price.toLocaleString()} each`}</span>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" onclick="changeBookingQty(this, -1)" disabled>−</button>
+            <span class="qty-value">0</span>
+            <button class="qty-btn" onclick="changeBookingQty(this, 1)" ${soldOut ? 'disabled' : ''}>+</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function changeBookingQty(btn, delta) {
+    const stepper = btn.parentElement;
+    const card = stepper.closest('.booking-ticket-type');
+    const valueEl = stepper.querySelector('.qty-value');
+    const minusBtn = stepper.querySelector('.qty-btn:first-child');
+    const plusBtn = stepper.querySelector('.qty-btn:last-child');
+    const maxAllowed = Math.min(parseInt(card.dataset.max, 10), parseInt(card.dataset.available, 10));
+    const qty = Math.max(0, Math.min(parseInt(valueEl.textContent, 10) + delta, maxAllowed));
+
+    valueEl.textContent = qty;
+    minusBtn.disabled = qty === 0;
+    plusBtn.disabled = qty >= maxAllowed;
+    card.classList.toggle('selected', qty > 0);
+    updateBookingSummary();
+    validateBookingForm();
+  }
+
+  function updateBookingSummary() {
+    const summary = document.getElementById('booking-summary');
+    const empty = document.getElementById('booking-empty');
+    summary.querySelectorAll('.booking-line').forEach(row => row.remove());
+
+    let subtotal = 0;
+    let hasTickets = false;
+    document.querySelectorAll('.booking-ticket-type:not(.sold-out)').forEach(card => {
+      const qty = parseInt(card.querySelector('.qty-value').textContent, 10);
+      const price = parseInt(card.dataset.price, 10);
+      const name = card.querySelector('.booking-ticket-name').childNodes[0].textContent.trim();
+      if (qty > 0) {
+        hasTickets = true;
+        subtotal += qty * price;
+        const row = document.createElement('div');
+        row.className = 'booking-summary-row booking-line';
+        row.innerHTML = `<span>${name} × ${qty}</span><span>₦${(qty * price).toLocaleString()}</span>`;
+        summary.insertBefore(row, summary.querySelector('.booking-divider'));
+      }
+    });
+
+    const fee = Math.round(subtotal * 0.05);
+    const total = subtotal + fee;
+    empty.style.display = hasTickets ? 'none' : '';
+    document.getElementById('booking-fee').textContent = `₦${fee.toLocaleString()}`;
+    document.getElementById('booking-total').textContent = `₦${total.toLocaleString()}`;
+    document.getElementById('booking-submit').textContent = `Pay ₦${total.toLocaleString()}`;
+  }
+
+  function validateBookingForm() {
+    const name = document.getElementById('booking-name').value.trim();
+    const email = document.getElementById('booking-email').value.trim();
+    const phone = document.getElementById('booking-phone').value.trim();
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const phoneValid = phone.length >= 7;
+    const terms = document.getElementById('booking-terms').checked;
+    const hasTickets = [...document.querySelectorAll('.booking-ticket-type:not(.sold-out)')]
+      .some(card => parseInt(card.querySelector('.qty-value').textContent, 10) > 0);
+
+    document.getElementById('booking-submit').disabled = !(name && emailValid && phoneValid && terms && hasTickets);
+    return { name, emailValid, phoneValid };
+  }
+
+  function submitBooking() {
+    const state = validateBookingForm();
+    document.getElementById('booking-name-error').style.display = state.name ? 'none' : 'block';
+    document.getElementById('booking-email-error').style.display = state.emailValid ? 'none' : 'block';
+    document.getElementById('booking-phone-error').style.display = state.phoneValid ? 'none' : 'block';
+    document.getElementById('booking-name').classList.toggle('error', !state.name);
+    document.getElementById('booking-email').classList.toggle('error', !state.emailValid);
+    document.getElementById('booking-phone').classList.toggle('error', !state.phoneValid);
+    if (document.getElementById('booking-submit').disabled) return;
+
+    showBookingToast();
+  }
+
+  function showBookingToast() {
+    const toast = document.getElementById('booking-toast');
+    toast.classList.add('show');
+    clearTimeout(window.bookingToastTimer);
+    window.bookingToastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2600);
+  }
+
+  function hideUpcomingContentSections() {
+    const gallery = document.querySelector('.gallery');
+    const reviews = document.querySelector('.reviews');
+    [gallery, reviews].forEach(section => {
+      if (!section) return;
+      section.style.display = 'none';
+      const title = section.previousElementSibling;
+      const divider = title && title.previousElementSibling;
+      if (title) title.style.display = 'none';
+      if (divider && divider.classList.contains('divider')) divider.style.display = 'none';
+    });
+  }
+
+  function moveUpcomingDetailPanels() {
+    const panel = document.querySelector('.detail-panels');
+    const stats = document.querySelector('.hero-stats');
+    const map = document.querySelector('.map-card');
+    const cards = [...document.querySelectorAll('.info-card')];
+    const eventInfo = cards.find(card => card.querySelector('.info-card-title')?.textContent.trim() === 'Event info');
+    const lineup = cards.find(card => card.querySelector('.info-card-title')?.textContent.trim() === 'Lineup');
+    if (lineup) lineup.classList.add('lineup-card');
+
+    [eventInfo, map, lineup, stats].forEach(node => {
+      if (node) panel.appendChild(node);
+    });
+  }
+
+  function renderPastEvent(eventData) {
+    document.title = eventData.documentTitle;
+    document.querySelector('.hero img').src = eventData.image;
+    document.querySelector('.hero img').alt = eventData.alt;
+    document.querySelector('.past-badge').textContent = 'Past event';
+    document.querySelector('.hero-title').innerHTML = eventData.title;
+    document.querySelector('.hero-meta-row').innerHTML = `
+      <span class="hero-meta-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        ${eventData.venueShort}
+      </span>
+      <span class="hero-meta-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+        ${eventData.date}
+      </span>
+    `;
+
+    const heroStats = document.querySelectorAll('.stat-pill');
+    heroStats[0].querySelector('.num').textContent = eventData.attended;
+    heroStats[0].querySelector('.lbl').textContent = 'Attended';
+    heroStats[1].querySelector('.num').textContent = eventData.rating;
+    heroStats[1].querySelector('.lbl').textContent = 'Avg rating';
+
+    const heroStatsGroup = document.querySelector('.hero-stats');
+    const firstInfoCard = document.querySelector('.sidebar .info-card:first-of-type');
+    firstInfoCard.after(heroStatsGroup);
+
+    const highlightNums = document.querySelectorAll('.highlight-num');
+    const highlightLabels = document.querySelectorAll('.highlight-lbl');
+    highlightNums[0].textContent = eventData.capacity;
+    highlightLabels[0].textContent = eventData.ticketsLabel;
+    highlightNums[1].textContent = `${eventData.rating} / 5`;
+    highlightLabels[1].textContent = eventData.ratingLabel;
+    highlightNums[2].textContent = eventData.songs;
+    highlightLabels[2].textContent = 'Songs performed';
+
+    document.querySelector('.about-text').innerHTML = eventData.about;
+
+    const infoValues = document.querySelectorAll('.info-row-value');
+    infoValues[0].textContent = eventData.date;
+    infoValues[1].textContent = eventData.time;
+    infoValues[2].textContent = eventData.venue;
+    infoValues[3].textContent = eventData.price;
+    infoValues[4].textContent = eventData.attendance;
+    document.querySelectorAll('.info-row-label')[4].textContent = 'Attendance';
+
+    document.querySelectorAll('.artist-row').forEach((row, index) => {
+      const [src, name, role] = eventData.artists[index];
+      row.querySelector('.artist-img').src = src;
+      row.querySelector('.artist-img').alt = name;
+      row.querySelector('.artist-name').textContent = name;
+      row.querySelector('.artist-role').textContent = role;
+    });
+
+    const lineupCard = [...document.querySelectorAll('.info-card')]
+      .find(card => card.querySelector('.info-card-title')?.textContent.trim() === 'Lineup');
+    const lineupSlot = document.querySelector('.past-lineup-slot');
+    if (lineupCard && lineupSlot) {
+      lineupSlot.appendChild(lineupCard);
+    }
+  }
+
+  function renderUpcomingEvent(eventData) {
+    document.title = eventData.documentTitle;
+    document.querySelector('.hero img').src = eventData.image;
+    document.querySelector('.hero img').alt = eventData.alt;
+    document.querySelector('.past-badge').textContent = 'Upcoming event';
+    document.querySelector('.hero-title').innerHTML = eventData.title;
+    document.querySelector('.hero-meta-row').innerHTML = `
+      <span class="hero-meta-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        ${eventData.venueShort}
+      </span>
+      <span class="hero-meta-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        ${eventData.time}
+      </span>
+    `;
+
+    const heroStats = document.querySelectorAll('.stat-pill');
+    heroStats[0].querySelector('.num').textContent = eventData.seatsLeft;
+    heroStats[0].querySelector('.lbl').textContent = 'Seats left';
+    heroStats[0].style.display = 'none';
+    heroStats[1].style.display = 'none';
+
+    const highlightNums = document.querySelectorAll('.highlight-num');
+    const highlightLabels = document.querySelectorAll('.highlight-lbl');
+    highlightNums[0].textContent = eventData.seatsLeft;
+    highlightLabels[0].textContent = 'Seats left';
+    highlightNums[1].textContent = eventData.tiers;
+    highlightLabels[1].textContent = 'Ticket tiers';
+    highlightNums[2].textContent = eventData.songs;
+    highlightLabels[2].textContent = 'Expected songs';
+
+    document.querySelector('.about-text').innerHTML = eventData.about;
+
+    document.querySelectorAll('.section-title')[3].textContent = 'What to expect';
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewCards[0].innerHTML = `
+      <div class="review-header"><div class="review-avatar">LV</div><div><div class="review-name">Live performance</div><div class="review-date">Main stage</div></div></div>
+      <p class="review-text">A focused headline set with production, lighting, and transitions shaped around this event's main artist.</p>
+    `;
+    reviewCards[1].innerHTML = `
+      <div class="review-header"><div class="review-avatar">DJ</div><div><div class="review-name">Warm-up sets</div><div class="review-date">Before headline</div></div></div>
+      <p class="review-text">DJs and openers keep the room active before the headline performance begins.</p>
+    `;
+    reviewCards[2].innerHTML = `
+      <div class="review-header"><div class="review-avatar">TK</div><div><div class="review-name">Ticket access</div><div class="review-date">Entry zones</div></div></div>
+      <p class="review-text">Use your booking confirmation and arrive early enough for check-in, security, and venue access.</p>
+    `;
+
+    const infoValues = document.querySelectorAll('.info-row-value');
+    infoValues[0].textContent = eventData.date;
+    infoValues[1].textContent = eventData.time;
+    infoValues[2].textContent = eventData.venue;
+    infoValues[3].textContent = eventData.price;
+    infoValues[4].textContent = eventData.capacity;
+    document.querySelectorAll('.info-row-label')[4].textContent = 'Capacity';
+    document.querySelector('.map-address').textContent = eventData.venue;
+    document.querySelector('.map-link').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(eventData.venue)}`;
+
+    document.querySelectorAll('.artist-row').forEach((row, index) => {
+      const [src, name, role] = eventData.artists[index];
+      row.querySelector('.artist-img').src = src;
+      row.querySelector('.artist-img').alt = name;
+      row.querySelector('.artist-name').textContent = name;
+      row.querySelector('.artist-role').textContent = role;
+    });
+
+    document.querySelector('.upcoming-cta p').textContent = 'Ready to go?';
+    document.querySelector('.upcoming-cta h3').textContent = `Book your ${eventData.documentTitle.split(' · ')[0]} tickets`;
+    document.querySelector('.hero-ticket-btn').href = '#';
+    document.querySelector('.btn-upcoming').href = '#';
+    renderBookingTickets(eventKey);
+    updateBookingSummary();
+    validateBookingForm();
+    hideUpcomingContentSections();
+    moveUpcomingDetailPanels();
+  }
+
+  if (status === 'past') {
+    document.body.classList.add('has-sidebar-stats');
+    document.querySelector('.btn-upcoming').href = '#';
+    renderPastEvent(pastEvents[eventKey] || pastEvents.timaya);
+  }
+
+  if (status === 'upcoming') {
+    document.body.classList.add('is-upcoming', 'has-sidebar-stats');
+    renderUpcomingEvent(upcomingEvents[eventKey] || upcomingEvents['burna-boy']);
+  }
+</script>
+
+</body>
+</html>
