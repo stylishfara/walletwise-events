@@ -186,18 +186,91 @@
     .filter-bar {
       padding: 32px 48px 0;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .filter-row {
-      display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .filter-row .filter-search {
+    .filter-bar .filter-search {
       margin-left: auto;
+    }
+
+    .cat-dropdown {
+      position: relative;
+    }
+
+    .cat-dropdown-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 1.5px solid #e8e8e8;
+      border-radius: var(--radius-pill);
+      padding: 9px 16px 9px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      background: var(--white);
+      color: var(--black);
+      white-space: nowrap;
+      transition: border-color 0.15s;
+    }
+
+    .cat-dropdown-btn.has-selection {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .cat-dropdown-btn svg {
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .cat-dropdown.open .cat-dropdown-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .cat-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border: 1.5px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      z-index: 50;
+    }
+
+    .cat-dropdown.open .cat-dropdown-menu {
+      display: block;
+    }
+
+    .cat-dropdown-menu button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: var(--font);
+      color: var(--black);
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+
+    .cat-dropdown-menu button:hover {
+      background: var(--gray-100);
+    }
+
+    .cat-dropdown-menu button.active {
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light, #f0ebff);
     }
 
     .filter-search {
@@ -465,10 +538,10 @@
 
       .filter-bar {
         padding: 20px 16px 0;
+        flex-wrap: wrap;
         gap: 8px;
       }
-      .filter-row { flex-wrap: wrap; gap: 8px; }
-      .filter-row .filter-search { margin-left: 0; flex: 1 1 100%; }
+      .filter-bar .filter-search { margin-left: 0; flex: 1 1 100%; }
       .filter-search input { width: 100%; min-width: 0; }
 
       .section-head { padding: 24px 16px 14px; }
@@ -555,20 +628,28 @@
 
 <!-- ─── FILTER BAR ────────────────────────────────────────── -->
 <div class="filter-bar">
-  <div class="filter-row">
-    <button class="pill type-pill active" onclick="filterToggle(this)">Upcoming</button>
-    <button class="pill type-pill" onclick="filterToggle(this)">Past</button>
-    <div class="filter-search">
-      <svg width="14" height="14" fill="none" stroke="#737373" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+  <button class="pill type-pill active" onclick="filterToggle(this)">Upcoming</button>
+  <button class="pill type-pill" onclick="filterToggle(this)">Past</button>
+
+  <div class="cat-dropdown" id="cat-dropdown">
+    <button class="cat-dropdown-btn" id="cat-dropdown-btn" onclick="toggleCatDropdown()">
+      <span id="cat-label">All types</span>
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6"/>
       </svg>
-      <input id="event-search" type="text" placeholder="Search events…" />
+    </button>
+    <div class="cat-dropdown-menu" id="cat-dropdown-menu">
+      <button class="active" onclick="selectCategory('all', 'All types')">All types</button>
+      <button onclick="selectCategory('concert', 'Concert')">Concert</button>
+      <button onclick="selectCategory('beauty-pageant', 'Beauty Pageant')">Beauty Pageant</button>
     </div>
   </div>
-  <div class="filter-row">
-    <button class="pill cat-pill active" onclick="categoryToggle(this)">All types</button>
-    <button class="pill cat-pill" onclick="categoryToggle(this)">Concert</button>
-    <button class="pill cat-pill" onclick="categoryToggle(this)">Beauty Pageant</button>
+
+  <div class="filter-search">
+    <svg width="14" height="14" fill="none" stroke="#737373" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input id="event-search" type="text" placeholder="Search events…" />
   </div>
 </div>
 
@@ -759,15 +840,25 @@
     applyFilters();
   }
 
-  function categoryToggle(btn) {
-    document.querySelectorAll('.filter-bar .cat-pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    const text = btn.textContent.trim().toLowerCase();
-    if (text === 'concert') activeCategory = 'concert';
-    else if (text === 'beauty pageant') activeCategory = 'beauty-pageant';
-    else activeCategory = 'all';
+  function toggleCatDropdown() {
+    document.getElementById('cat-dropdown').classList.toggle('open');
+  }
+
+  function selectCategory(value, label) {
+    activeCategory = value;
+    document.getElementById('cat-label').textContent = label;
+    document.querySelectorAll('.cat-dropdown-menu button').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    const btn = document.getElementById('cat-dropdown-btn');
+    btn.classList.toggle('has-selection', value !== 'all');
+    document.getElementById('cat-dropdown').classList.remove('open');
     applyFilters();
   }
+
+  document.addEventListener('click', e => {
+    const dd = document.getElementById('cat-dropdown');
+    if (!dd.contains(e.target)) dd.classList.remove('open');
+  });
 
   document.getElementById('event-search').addEventListener('input', applyFilters);
 </script>
