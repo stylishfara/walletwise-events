@@ -186,12 +186,17 @@
     .filter-bar {
       padding: 32px 48px 0;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      flex-direction: column;
       gap: 10px;
     }
 
-    .filter-bar .filter-search {
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .filter-row .filter-search {
       margin-left: auto;
     }
 
@@ -460,10 +465,10 @@
 
       .filter-bar {
         padding: 20px 16px 0;
-        flex-wrap: wrap;
         gap: 8px;
       }
-      .filter-bar .filter-search { margin-left: 0; flex: 1 1 100%; }
+      .filter-row { flex-wrap: wrap; gap: 8px; }
+      .filter-row .filter-search { margin-left: 0; flex: 1 1 100%; }
       .filter-search input { width: 100%; min-width: 0; }
 
       .section-head { padding: 24px 16px 14px; }
@@ -550,13 +555,20 @@
 
 <!-- ─── FILTER BAR ────────────────────────────────────────── -->
 <div class="filter-bar">
-  <button class="pill active" onclick="filterToggle(this)">Upcoming</button>
-  <button class="pill" onclick="filterToggle(this)">Past</button>
-  <div class="filter-search">
-    <svg width="14" height="14" fill="none" stroke="#737373" stroke-width="2" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-    </svg>
-    <input id="event-search" type="text" placeholder="Search events…" />
+  <div class="filter-row">
+    <button class="pill type-pill active" onclick="filterToggle(this)">Upcoming</button>
+    <button class="pill type-pill" onclick="filterToggle(this)">Past</button>
+    <div class="filter-search">
+      <svg width="14" height="14" fill="none" stroke="#737373" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input id="event-search" type="text" placeholder="Search events…" />
+    </div>
+  </div>
+  <div class="filter-row">
+    <button class="pill cat-pill active" onclick="categoryToggle(this)">All types</button>
+    <button class="pill cat-pill" onclick="categoryToggle(this)">Concert</button>
+    <button class="pill cat-pill" onclick="categoryToggle(this)">Beauty Pageant</button>
   </div>
 </div>
 
@@ -568,7 +580,7 @@
 <div class="cards-grid" id="events-grid">
 
     <!-- UPCOMING -->
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=burna-boy">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=burna-boy">
       <div class="card-img-wrap">
         <img src="burna-boy-apple-music-live-2023-billboard-1548.jpg" alt="Burna Boy Live"/>
       </div>
@@ -577,7 +589,7 @@
       <div class="card-price">₦25,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=tems">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=tems">
       <div class="card-img-wrap">
         <img src="TONIGHT-@temsbaby.jpg" alt="Tems Live"/>
       </div>
@@ -586,7 +598,16 @@
       <div class="card-price">₦15,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=wizkid">
+    <a class="card" data-type="upcoming" data-category="beauty-pageant" href="#">
+      <div class="card-img-wrap">
+        <img src="h3.jpeg" alt="Miss Lagos 2026"/>
+      </div>
+      <div class="card-title">Miss Lagos 2026</div>
+      <div class="card-sub">Sat 24 May · Eko Hotel, Victoria Island</div>
+      <div class="card-price">₦8,000 per ticket</div>
+    </a>
+
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=wizkid">
       <div class="card-img-wrap">
         <img src="wizkid-live.webp" alt="Wizkid Concert"/>
       </div>
@@ -595,7 +616,7 @@
       <div class="card-price">₦30,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=shalli">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=shalli">
       <div class="card-img-wrap">
         <img src="shalli.png" alt="Shalli Live"/>
       </div>
@@ -604,7 +625,7 @@
       <div class="card-price">Free entry</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=davido">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=davido">
       <div class="card-img-wrap">
         <img src="1920x1072mv.jpg" alt="Davido Show"/>
       </div>
@@ -613,7 +634,7 @@
       <div class="card-price">₦20,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=felabration">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=felabration">
       <div class="card-img-wrap">
         <img src="h1.jpeg" alt="Felabration"/>
       </div>
@@ -622,7 +643,7 @@
       <div class="card-price">₦5,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=adekunle-gold">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=adekunle-gold">
       <div class="card-img-wrap">
         <img src="h2.jpeg" alt="Adekunle Gold"/>
       </div>
@@ -631,7 +652,7 @@
       <div class="card-price">₦12,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" href="event-details.html?status=upcoming&event=tiwa-savage">
+    <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=tiwa-savage">
       <div class="card-img-wrap">
         <img src="h3.jpeg" alt="Tiwa Savage"/>
       </div>
@@ -641,7 +662,7 @@
     </a>
 
     <!-- PAST -->
-    <a class="card" data-type="past" style="display:none;" href="event-details.html?status=past&event=timaya">
+    <a class="card" data-type="past" data-category="concert" style="display:none;" href="event-details.html?status=past&event=timaya">
       <div class="card-img-wrap" style="opacity:0.7;">
         <img src="wizkid-live.webp" alt="Timaya Live"/>
       </div>
@@ -650,7 +671,7 @@
       <div class="card-price">₦18,000 · Sold out</div>
     </a>
 
-    <a class="card" data-type="past" style="display:none;" href="event-details.html?status=past&event=rema">
+    <a class="card" data-type="past" data-category="concert" style="display:none;" href="event-details.html?status=past&event=rema">
       <div class="card-img-wrap" style="opacity:0.7;">
         <img src="1920x1072mv.jpg" alt="Rema Show"/>
       </div>
@@ -659,7 +680,7 @@
       <div class="card-price">₦22,000</div>
     </a>
 
-    <a class="card" data-type="past" style="display:none;" href="event-details.html?status=past&event=olamide">
+    <a class="card" data-type="past" data-category="concert" style="display:none;" href="event-details.html?status=past&event=olamide">
       <div class="card-img-wrap" style="opacity:0.7;">
         <img src="burna-boy-apple-music-live-2023-billboard-1548.jpg" alt="Olamide Concert"/>
       </div>
@@ -668,7 +689,7 @@
       <div class="card-price">₦10,000</div>
     </a>
 
-    <a class="card" data-type="past" style="display:none;" href="event-details.html?status=past&event=asa">
+    <a class="card" data-type="past" data-category="concert" style="display:none;" href="event-details.html?status=past&event=asa">
       <div class="card-img-wrap" style="opacity:0.7;">
         <img src="TONIGHT-@temsbaby.jpg" alt="Asa Live"/>
       </div>
@@ -677,7 +698,16 @@
       <div class="card-price">₦12,000</div>
     </a>
 
-    <a class="card" data-type="past" style="display:none;" href="event-details.html?status=past&event=fireboy">
+    <a class="card" data-type="past" data-category="beauty-pageant" style="display:none;" href="#">
+      <div class="card-img-wrap" style="opacity:0.7;">
+        <img src="h1.jpeg" alt="Most Beautiful Girl in Nigeria 2025"/>
+      </div>
+      <div class="card-title">Most Beautiful Girl in Nigeria 2025</div>
+      <div class="card-sub">Sat 19 Apr · Eko Hotel, Victoria Island</div>
+      <div class="card-price">₦5,000 · Sold out</div>
+    </a>
+
+    <a class="card" data-type="past" data-category="concert" style="display:none;" href="event-details.html?status=past&event=fireboy">
       <div class="card-img-wrap" style="opacity:0.7;">
         <img src="shalli.png" alt="Fireboy Show"/>
       </div>
@@ -686,7 +716,7 @@
       <div class="card-price">₦8,000</div>
     </a>
 
-    <a class="card" data-type="past" style="display:none;" href="event-details.html?status=past&event=femi-kuti">
+    <a class="card" data-type="past" data-category="concert" style="display:none;" href="event-details.html?status=past&event=femi-kuti">
       <div class="card-img-wrap" style="opacity:0.7;">
         <img src="h2.jpeg" alt="Femi Kuti"/>
       </div>
@@ -701,6 +731,7 @@
 
 <script>
   let activeType = 'upcoming';
+  let activeCategory = 'all';
 
   function applyFilters() {
     const query = document.getElementById('event-search').value.trim().toLowerCase();
@@ -711,8 +742,9 @@
     document.querySelectorAll('#events-grid a.card').forEach(card => {
       const searchableText = card.textContent.toLowerCase();
       const matchesTab = card.dataset.type === activeType;
+      const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
       const matchesSearch = !query || searchableText.includes(query);
-      const isVisible = matchesTab && matchesSearch;
+      const isVisible = matchesTab && matchesCategory && matchesSearch;
       card.style.display = isVisible ? '' : 'none';
       if (isVisible) visibleCount += 1;
     });
@@ -721,9 +753,19 @@
   }
 
   function filterToggle(btn) {
-    document.querySelectorAll('.filter-bar .pill').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.filter-bar .type-pill').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     activeType = btn.textContent.trim().toLowerCase() === 'upcoming' ? 'upcoming' : 'past';
+    applyFilters();
+  }
+
+  function categoryToggle(btn) {
+    document.querySelectorAll('.filter-bar .cat-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const text = btn.textContent.trim().toLowerCase();
+    if (text === 'concert') activeCategory = 'concert';
+    else if (text === 'beauty pageant') activeCategory = 'beauty-pageant';
+    else activeCategory = 'all';
     applyFilters();
   }
 
