@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WalletWise Design System</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #5A27CC;
+      --primary-light: #f0ebff;
+      --black: #404040;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-700: #404040;
+      --red: #dc2626;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --amber: #f59e0b;
+      --radius-card: 16px;
+      --radius-pill: 100px;
+      --radius-inner: 12px;
+      --radius-sm: 10px;
+      --radius-icon: 10px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--gray-100);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── PAGE NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 72px;
+    }
+    .nav-logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--primary); }
+    .nav-tag { font-size: 12px; color: var(--gray-400); font-weight: 500; }
+
+    /* ─── PAGE LAYOUT ─── */
+    .page { max-width: 1100px; margin: 0 auto; padding: 56px 40px 120px; }
+
+    .ds-section { margin-bottom: 72px; }
+    .ds-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    /* ─── HERO BANNER ─── */
+    .ds-hero {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      height: 280px;
+      background: linear-gradient(135deg, #1a0a3d 0%, #3b1a8a 60%, #5A27CC 100%);
+      margin-bottom: 72px;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+    }
+    .ds-hero-inner { z-index: 2; }
+    .ds-hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+    }
+    .ds-hero-title {
+      font-size: clamp(32px,4vw,52px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 0.95;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .ds-hero-sub { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 440px; line-height: 1.6; }
+
+    /* ─── COLOR SWATCHES ─── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .swatch {
+      border-radius: var(--radius-inner);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+    }
+    .swatch-color { height: 72px; }
+    .swatch-info { padding: 10px 12px; background: var(--white); }
+    .swatch-name { font-size: 13px; font-weight: 600; color: var(--black); }
+    .swatch-hex { font-size: 11px; color: var(--gray-400); font-family: 'Menlo', 'Monaco', monospace; margin-top: 2px; }
+    .swatch-role { font-size: 11px; color: var(--gray-500); margin-top: 1px; }
+
+    /* ─── TYPOGRAPHY ─── */
+    .type-rows { display: flex; flex-direction: column; gap: 24px; }
+    .type-row {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { }
+    .type-label { font-size: 12px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .type-spec { font-size: 12px; color: var(--gray-400); font-family: 'Menlo', 'Monaco', monospace; line-height: 1.8; }
+    .type-sample-logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--primary); }
+    .type-sample-hero { font-size: clamp(28px,3.5vw,52px); font-weight: 900; letter-spacing: -3px; line-height: 0.95; text-transform: uppercase; color: var(--black); }
+    .type-sample-h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+    .type-sample-h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+    .type-sample-body { font-size: 15px; font-weight: 400; line-height: 1.75; color: var(--gray-500); }
+    .type-sample-card { font-size: 15px; font-weight: 700; }
+    .type-sample-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gray-500); }
+    .type-sample-badge { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray-400); }
+    .type-sample-sub { font-size: 13px; font-weight: 400; color: var(--gray-500); }
+
+    /* ─── RADIUS ─── */
+    .radius-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
+    .radius-swatch {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .radius-box {
+      width: 80px; height: 80px;
+      background: var(--primary-light);
+      border: 1.5px solid var(--primary);
+    }
+    .radius-name { font-size: 12px; font-weight: 700; color: var(--black); }
+    .radius-val { font-size: 11px; color: var(--gray-400); font-family: 'Menlo','Monaco',monospace; }
+
+    /* ─── SHADOWS ─── */
+    .shadow-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .shadow-card {
+      background: var(--white);
+      border-radius: var(--radius-inner);
+      padding: 24px 20px;
+      width: 180px;
+      text-align: center;
+    }
+    .shadow-label { font-size: 12px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+    .shadow-context { font-size: 11px; color: var(--gray-400); line-height: 1.5; }
+
+    /* ─── COMPONENT FRAME ─── */
+    .comp-frame {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-card);
+      padding: 32px;
+    }
+    .comp-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 20px;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .pill {
+      border: 1.5px solid #e8e8e8;
+      border-radius: var(--radius-pill);
+      padding: 9px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .pill.active, .pill:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
+    .btn-outline {
+      background: none;
+      border: 1.5px solid var(--gray-300);
+      border-radius: var(--radius-pill);
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+    .btn-primary {
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 12px 24px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-primary-full {
+      width: 100%;
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 15px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+    .btn-primary-full:disabled { background: var(--gray-300); cursor: not-allowed; }
+    .btn-white-on-primary {
+      display: block;
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: opacity 0.15s;
+    }
+    .btn-white-on-primary:hover { opacity: 0.88; }
+
+    /* ─── PILLS / BADGES ─── */
+    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .avail-badge {
+      font-size: 11px; font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+    }
+    .avail-badge.ok   { background: var(--green-light); color: var(--green); }
+    .avail-badge.low  { background: #fff7ed; color: #c2410c; }
+    .avail-badge.sold { background: var(--gray-200); color: var(--gray-500); }
+    .card-badge {
+      background: rgba(0,0,0,0.08);
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .card-badge.dark { background: var(--black); color: var(--white); }
+    .past-badge-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(90,39,204,0.12);
+      border: 1px solid rgba(90,39,204,0.25);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ─── FORM ELEMENTS ─── */
+    .form-col { display: flex; flex-direction: column; gap: 16px; max-width: 420px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .field input {
+      width: 100%;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: 13px 14px;
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field input:focus { border-color: var(--primary); }
+    .field input::placeholder { color: var(--gray-400); }
+    .field input.error { border-color: var(--red); }
+    .field-error { font-size: 12px; color: var(--red); margin-top: 5px; }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--gray-300);
+      border-radius: var(--radius-pill);
+      padding: 10px 16px;
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      max-width: 280px;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      font-family: var(--font);
+      color: var(--black);
+      background: transparent;
+      width: 100%;
+    }
+    .search-bar input::placeholder { color: var(--gray-400); }
+
+    /* ─── QTY STEPPER ─── */
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      overflow: hidden;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      background: var(--white);
+    }
+    .qty-btn {
+      width: 34px; height: 34px;
+      border: none; background: transparent;
+      color: var(--black); font-size: 18px; cursor: pointer;
+      font-family: var(--font);
+    }
+    .qty-btn:disabled { color: var(--gray-300); cursor: default; }
+    .qty-value {
+      width: 32px;
+      border-left: 1px solid var(--gray-200);
+      border-right: 1px solid var(--gray-200);
+      font-size: 14px; font-weight: 700;
+      line-height: 34px; text-align: center;
+    }
+
+    /* ─── CARD ─── */
+    .card-demo {
+      width: 220px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card-demo:hover .card-demo-title { text-decoration: underline; }
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: linear-gradient(135deg, #c8c0e8 0%, #a080d0 100%);
+      margin-bottom: 10px;
+    }
+    .card-img-wrap .card-badge-pos {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(255,255,255,0.92);
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+    .card-img-wrap .card-img-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #c8c0e8 0%, #7a50cc 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-img-inner svg { opacity: 0.4; }
+    .card-demo-title { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+    .card-demo-sub { font-size: 13px; color: var(--gray-500); margin-bottom: 3px; }
+    .card-demo-price { font-size: 14px; font-weight: 600; }
+
+    /* ─── INFO CARD ─── */
+    .info-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-card);
+      padding: 24px;
+    }
+    .info-card-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--gray-500); margin-bottom: 16px;
+    }
+    .info-row {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 14px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row svg { flex-shrink: 0; margin-top: 1px; color: var(--black); }
+    .info-row-label { font-size: 14px; color: var(--gray-400); margin-bottom: 2px; }
+    .info-row-value { font-weight: 500; color: var(--black); }
+
+    /* ─── HIGHLIGHT CARDS ─── */
+    .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .highlight-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .highlight-icon {
+      width: 40px; height: 40px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px; color: var(--black);
+    }
+    .highlight-num { font-size: 22px; font-weight: 800; color: var(--black); display: block; }
+    .highlight-lbl { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+
+    /* ─── REVIEW CARD ─── */
+    .review-card { border: 1.5px solid var(--gray-200); border-radius: 12px; padding: 18px; }
+    .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .review-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--primary);
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 600; }
+    .review-date { font-size: 12px; color: var(--gray-400); }
+    .review-stars { color: var(--amber); font-size: 13px; margin-bottom: 6px; }
+    .review-text { font-size: 14px; line-height: 1.6; color: var(--gray-500); }
+
+    /* ─── CTA BLOCK ─── */
+    .cta-block {
+      background: var(--primary);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      color: var(--white);
+      text-align: center;
+      max-width: 300px;
+      flex: 1 1 260px;
+    }
+    .cta-block p { font-size: 13px; opacity: 0.75; margin-bottom: 6px; }
+    .cta-block h3 { font-size: 17px; font-weight: 800; margin-bottom: 18px; letter-spacing: -0.3px; }
+
+    /* ─── STAT PILLS (dark) ─── */
+    .stat-pills-dark {
+      display: inline-flex;
+      gap: 8px;
+      padding: 20px;
+      border-radius: var(--radius-card);
+      background: #1a0a3d;
+    }
+    .stat-pill-dark {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-pill);
+      min-width: 112px;
+      padding: 8px 16px;
+      text-align: center;
+    }
+    .stat-pill-dark .num { font-size: 20px; font-weight: 800; color: var(--white); display: block; }
+    .stat-pill-dark .lbl { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ─── TICKET TYPE ─── */
+    .ticket-type {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; border: 1.5px solid var(--gray-200);
+      border-radius: 12px; padding: 14px;
+    }
+    .ticket-type.selected { border-color: var(--primary); background: var(--primary-light); }
+    .ticket-left { display: flex; flex: 1; flex-direction: column; gap: 4px; }
+    .ticket-name { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .ticket-desc { font-size: 12px; color: var(--gray-500); }
+    .ticket-price { font-size: 15px; font-weight: 800; margin-top: 6px; }
+
+    /* ─── TOAST ─── */
+    .toast-demo {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+      display: inline-block;
+    }
+
+    /* ─── DIVIDER DEMO ─── */
+    .divider { height: 1px; background: var(--gray-200); }
+
+    /* ─── HERO DARK BADGE ─── */
+    .frosted-badge-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ─── ICON ROW ─── */
+    .icon-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .icon-cell { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .icon-box {
+      width: 40px; height: 40px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--black);
+    }
+    .icon-size { font-size: 11px; color: var(--gray-400); }
+
+    /* ─── TWO-COL GRID ─── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+
+    /* ─── ARTIST ROW ─── */
+    .artist-row { display: flex; align-items: center; gap: 12px; }
+    .artist-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%; background: var(--gray-200); flex-shrink: 0;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .artist-name { font-size: 14px; font-weight: 600; }
+    .artist-role { font-size: 12px; color: var(--gray-500); }
+    .artist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* ─── TERMS ROW ─── */
+    .terms-row {
+      display: flex; align-items: flex-start;
+      gap: 10px; color: var(--gray-500);
+      font-size: 13px; line-height: 1.5;
+    }
+    .terms-row input[type=checkbox] {
+      width: 16px; height: 16px; margin-top: 2px;
+      accent-color: var(--primary); flex-shrink: 0;
+    }
+
+    /* ─── SUMMARY ROW ─── */
+    .summary-row {
+      display: flex; justify-content: space-between;
+      gap: 16px; font-size: 14px; color: var(--gray-500);
+      padding: 6px 0;
+    }
+    .summary-row.total { color: var(--black); font-size: 16px; font-weight: 800; }
+
+    /* ─── GALLERY ─── */
+    .gallery-demo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 480px;
+    }
+    .gallery-item {
+      aspect-ratio: 1/1; border-radius: 10px;
+      overflow: hidden; background: var(--gray-200);
+    }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: unset; }
+    .gallery-swatch {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ─── SCROLLABLE CARD STRIP ─── */
+    .scroll-strip {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .scroll-strip::-webkit-scrollbar { display: none; }
+    .scroll-card {
+      flex: 0 0 180px;
+      scroll-snap-align: start;
+    }
+    .scroll-card-img {
+      aspect-ratio: 1/1;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: linear-gradient(135deg, #e0e0e0, #c0c0c0);
+      margin-bottom: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ─── SPACING TOKENS ─── */
+    .spacing-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+    .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .spacing-bar { background: var(--primary-light); border: 1.5px solid var(--primary); width: 20px; border-radius: 4px; }
+    .spacing-label { font-size: 11px; font-weight: 700; color: var(--black); }
+    .spacing-val { font-size: 11px; color: var(--gray-400); }
+
+    /* ─── CTA + STAT PILLS ROW ─── */
+    .cta-stat-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+
+    /* ─── TOAST ROW ─── */
+    .toast-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    /* ─── CARD DEMO ROW ─── */
+    .card-demo-row { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — TABLET  ≤ 768px
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+        gap: 12px;
+      }
+      .nav-tag { display: none; }
+      .nav-actions-group { gap: 8px; }
+
+      .page { padding: 36px 20px 80px; }
+
+      .ds-hero {
+        height: auto;
+        min-height: 220px;
+        padding: 28px 24px;
+      }
+
+      .ds-section { margin-bottom: 52px; }
+
+      .comp-frame { padding: 20px; }
+
+      .type-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 16px 0;
+      }
+
+      .two-col { grid-template-columns: 1fr; }
+      .three-col { grid-template-columns: 1fr; }
+
+      .highlights { grid-template-columns: 1fr 1fr; }
+
+      .shadow-card { width: auto; flex: 1 1 140px; }
+
+      .form-col { max-width: 100%; }
+
+      .cta-block { max-width: 100%; flex: 1 1 100%; }
+      .stat-pills-dark { width: 100%; justify-content: center; }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — MOBILE  ≤ 480px
+    ═══════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 16px;
+        height: 60px;
+      }
+      .nav-logo { font-size: 18px; }
+      .nav-btn-group { display: none; }
+
+      .page { padding: 24px 16px 64px; }
+
+      .ds-hero {
+        padding: 24px 20px;
+        border-radius: 12px;
+        margin-bottom: 48px;
+      }
+      .ds-hero-title { letter-spacing: -2px; }
+      .ds-hero-sub { font-size: 13px; }
+
+      .ds-section { margin-bottom: 40px; }
+      .ds-section-title { font-size: 10px; letter-spacing: 2px; }
+
+      .comp-frame { padding: 16px; border-radius: 12px; }
+
+      .color-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+
+      .type-row { gap: 8px; padding: 14px 0; }
+      .type-sample-hero { font-size: clamp(24px, 8vw, 40px); letter-spacing: -2px; }
+
+      .highlights { grid-template-columns: 1fr; }
+      .artist-grid { grid-template-columns: 1fr; }
+
+      .radius-row { gap: 12px; }
+      .radius-box { width: 64px; height: 64px; }
+
+      .shadow-row { gap: 12px; }
+      .shadow-card { flex: 1 1 100%; }
+
+      .btn-row { gap: 8px; }
+
+      .card-demo { width: 100%; max-width: 280px; }
+
+      .gallery-demo { max-width: 100%; }
+
+      .ticket-name { flex-wrap: wrap; }
+
+      .cta-block { max-width: 100%; }
+      .stat-pills-dark {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .stat-pill-dark { min-width: 0; }
+
+      .scroll-strip { gap: 12px; }
+      .scroll-card { flex: 0 0 150px; }
+
+      .spacing-row { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">WalletWise</div>
+  <span class="nav-tag">Design System Reference</span>
+  <div class="nav-btn-group" style="display:flex;gap:10px">
+    <button class="btn-outline">Log in</button>
+    <button class="btn-primary" style="padding:8px 16px;font-size:14px">Sign up</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO BANNER -->
+  <div class="ds-hero">
+    <div class="ds-hero-inner">
+      <div class="ds-hero-label">WalletWise · Design System</div>
+      <div class="ds-hero-title">Visual<br>Language</div>
+      <div class="ds-hero-sub">All tokens, typography, and components in one place. White-dominant, purple-accented, typography-led.</div>
+    </div>
+  </div>
+
+  <!-- ─── COLOURS ─────────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Colour Tokens</div>
+    <div class="color-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5A27CC"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Primary</div>
+          <div class="swatch-hex">#5A27CC</div>
+          <div class="swatch-role">CTAs, active, brand</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f0ebff;border-bottom:1px solid #e5e5e5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Primary Light</div>
+          <div class="swatch-hex">#f0ebff</div>
+          <div class="swatch-role">Selected states, avatars</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#404040"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Black</div>
+          <div class="swatch-hex">#404040</div>
+          <div class="swatch-role">Primary text, headings</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f5f5f5;border-bottom:1px solid #e5e5e5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray 100</div>
+          <div class="swatch-hex">#f5f5f5</div>
+          <div class="swatch-role">Icon bg, page bg</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#e5e5e5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray 200</div>
+          <div class="swatch-hex">#e5e5e5</div>
+          <div class="swatch-role">Borders, dividers</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#d4d4d4"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray 300</div>
+          <div class="swatch-hex">#d4d4d4</div>
+          <div class="swatch-role">Input borders, btn outline</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#a3a3a3"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray 400</div>
+          <div class="swatch-hex">#a3a3a3</div>
+          <div class="swatch-role">Placeholders, light labels</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#737373"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray 500</div>
+          <div class="swatch-hex">#737373</div>
+          <div class="swatch-role">Body secondary, sub-text</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#dc2626"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Red</div>
+          <div class="swatch-hex">#dc2626</div>
+          <div class="swatch-role">Errors, destructive</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#16a34a"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Green</div>
+          <div class="swatch-hex">#16a34a</div>
+          <div class="swatch-role">Available / ok</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f0fdf4;border-bottom:1px solid #e5e5e5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Green Light</div>
+          <div class="swatch-hex">#f0fdf4</div>
+          <div class="swatch-role">Green badge bg</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f59e0b"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Amber</div>
+          <div class="swatch-hex">#f59e0b</div>
+          <div class="swatch-role">Star ratings only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TYPOGRAPHY ─────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Typography Scale</div>
+    <div class="comp-frame">
+      <div class="type-rows">
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Logo</div>
+            <div class="type-spec">22px · 800 · -0.5px<br>color: primary</div>
+          </div>
+          <div class="type-sample-logo">WalletWise Events</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Hero Title</div>
+            <div class="type-spec">clamp(28,3.5vw,52px) · 900<br>-3px · uppercase</div>
+          </div>
+          <div class="type-sample-hero">Afrobeats<br>Fest Lagos</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Section Heading (h2)</div>
+            <div class="type-spec">24px · 600 · -0.5px</div>
+          </div>
+          <div class="type-sample-h2">Upcoming events</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Section Title (h3)</div>
+            <div class="type-spec">18px · 700 · -0.3px</div>
+          </div>
+          <div class="type-sample-h3">Event highlights</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Card Title</div>
+            <div class="type-spec">15px · 700<br>truncate with ellipsis</div>
+          </div>
+          <div class="type-sample-card">Burna Boy — Live in Lagos</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Body Text</div>
+            <div class="type-spec">15px · 400 · line-height 1.75<br>color: gray-500</div>
+          </div>
+          <div class="type-sample-body">The Energy God Tour was one of Lagos's most electrifying nights of 2025. Timaya brought his signature high-energy performance to the Eko Hotel Grand Ballroom.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Info Card Label</div>
+            <div class="type-spec">13px · 700 · 0.8px<br>uppercase · gray-500</div>
+          </div>
+          <div class="type-sample-label">Event Info</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Card Sub / Secondary</div>
+            <div class="type-spec">13px · 400 · gray-500</div>
+          </div>
+          <div class="type-sample-sub">Fri 16 May · Eko Convention Centre, VI</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-label">Badge / Hero Label</div>
+            <div class="type-spec">11px · 700 · 2.5px<br>uppercase</div>
+          </div>
+          <div class="type-sample-badge">Next Up · Sat 10 May 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BORDER RADIUS ─────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Border Radius</div>
+    <div class="comp-frame">
+      <div class="radius-row">
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:4px"></div>
+          <div class="radius-name">XS</div>
+          <div class="radius-val">4px — Qty stepper</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:8px"></div>
+          <div class="radius-name">SM Alt</div>
+          <div class="radius-val">8px — Qty border</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:10px"></div>
+          <div class="radius-name">radius-sm</div>
+          <div class="radius-val">10px — Inputs, gallery</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:10px"></div>
+          <div class="radius-name">radius-icon</div>
+          <div class="radius-val">10px — Icon containers</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:12px"></div>
+          <div class="radius-name">radius-inner</div>
+          <div class="radius-val">12px — Review/ticket cards</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:16px"></div>
+          <div class="radius-name">radius-card</div>
+          <div class="radius-val">16px — Cards, sidebar, CTA</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:100px;width:80px;height:40px"></div>
+          <div class="radius-name">radius-pill</div>
+          <div class="radius-val">100px — Buttons, filters</div>
+        </div>
+        <div class="radius-swatch">
+          <div class="radius-box" style="border-radius:50%;width:48px;height:48px"></div>
+          <div class="radius-name">Circle</div>
+          <div class="radius-val">50% — Avatars, scroll btn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SHADOWS ──────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Shadows</div>
+    <div style="background:var(--gray-100);border-radius:var(--radius-card);padding:32px;">
+      <div class="shadow-row">
+        <div class="shadow-card" style="box-shadow:0 2px 8px rgba(0,0,0,0.06)">
+          <div class="shadow-label">Subtle</div>
+          <div class="shadow-context">0 2px 8px / 6%<br>Search bars, inputs</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:0 2px 8px rgba(0,0,0,0.12)">
+          <div class="shadow-label">Light</div>
+          <div class="shadow-context">0 2px 8px / 12%<br>Scroll buttons</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:0 10px 24px rgba(0,0,0,0.2)">
+          <div class="shadow-label">Medium</div>
+          <div class="shadow-context">0 10px 24px / 20%<br>Map pin, floating</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:0 12px 32px rgba(0,0,0,0.22)">
+          <div class="shadow-label">Strong</div>
+          <div class="shadow-context">0 12px 32px / 22%<br>Hero ticket button</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:0 18px 42px rgba(0,0,0,0.22)">
+          <div class="shadow-label">Elevated</div>
+          <div class="shadow-context">0 18px 42px / 22%<br>Toast, dark cards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BUTTONS ──────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Buttons & Filters</div>
+    <div class="comp-frame">
+      <div class="comp-label">Filter Pills (toggle group)</div>
+      <div class="btn-row" style="margin-bottom:28px">
+        <button class="pill active">Upcoming</button>
+        <button class="pill">Past</button>
+        <button class="pill">All</button>
+      </div>
+      <div class="comp-label">Nav Action (outline)</div>
+      <div class="btn-row" style="margin-bottom:28px">
+        <button class="btn-outline">Log in</button>
+        <button class="btn-outline">Become a host</button>
+      </div>
+      <div class="comp-label">Primary Button</div>
+      <div class="btn-row" style="margin-bottom:28px">
+        <button class="btn-primary">Get tickets →</button>
+        <button class="btn-primary">View details →</button>
+      </div>
+      <div class="comp-label">White-on-Primary (inside CTA block)</div>
+      <div style="background:var(--primary);padding:16px;border-radius:12px;display:inline-block">
+        <button class="btn-white-on-primary">Browse upcoming →</button>
+      </div>
+      <div style="margin-top:28px">
+        <div class="comp-label">Full-width Submit</div>
+        <div style="max-width:min(320px,100%);display:flex;flex-direction:column;gap:10px">
+          <button class="btn-primary-full">Pay ₦25,000</button>
+          <button class="btn-primary-full" disabled>Pay ₦0 (disabled)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BADGES ──────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Badges & Status Pills</div>
+    <div class="comp-frame">
+      <div class="comp-label">Availability Badges</div>
+      <div class="badge-row" style="margin-bottom:24px">
+        <span class="avail-badge ok">48 left</span>
+        <span class="avail-badge low">Only 6 left</span>
+        <span class="avail-badge sold">Sold out</span>
+      </div>
+      <div class="comp-label">Card Floating Badges</div>
+      <div class="badge-row" style="margin-bottom:24px">
+        <span class="card-badge">General</span>
+        <span class="card-badge dark">Upcoming</span>
+      </div>
+      <div class="comp-label">Event Status Badge (frosted, on dark bg)</div>
+      <div style="background:#1a0a3d;padding:16px;border-radius:12px;display:inline-block;margin-bottom:24px">
+        <span class="frosted-badge-demo">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+          Past event
+        </span>
+      </div>
+      <br>
+      <div class="comp-label">Status Badge (on light bg)</div>
+      <span class="past-badge-demo">
+        <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor" style="color:var(--primary)"><circle cx="5" cy="5" r="5"/></svg>
+        Upcoming event
+      </span>
+    </div>
+  </div>
+
+  <!-- ─── ICONS ──────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Icon Style</div>
+    <div class="comp-frame">
+      <div class="comp-label">Feather-style · fill=none · stroke=currentColor · stroke-width=2</div>
+      <div class="icon-row">
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="icon-size">Location</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="icon-size">Calendar</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="icon-size">Clock</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="icon-size">Search</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div class="icon-size">People</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="icon-size">Star</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
+          </div>
+          <div class="icon-size">Ticket</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div class="icon-size">Music</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="icon-size">Arrow (2.5w)</div>
+        </div>
+        <div class="icon-cell">
+          <div class="icon-box" style="background:var(--primary);border-color:var(--primary);">
+            <svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="icon-size">On primary</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FORM ELEMENTS ─────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Form Elements</div>
+    <div class="two-col">
+      <div class="comp-frame">
+        <div class="comp-label">Text Inputs</div>
+        <div class="form-col">
+          <div class="field">
+            <label>Full name</label>
+            <input type="text" placeholder="e.g. Chidi Okeke" />
+          </div>
+          <div class="field">
+            <label>Email address</label>
+            <input type="email" value="chidi@example.com" />
+          </div>
+          <div class="field">
+            <label>With error</label>
+            <input type="text" class="error" value="bad input" />
+            <div class="field-error">Please enter a valid value.</div>
+          </div>
+        </div>
+      </div>
+      <div class="comp-frame">
+        <div class="comp-label">Search Bar (pill)</div>
+        <div style="margin-bottom:24px">
+          <div class="search-bar">
+            <svg width="14" height="14" fill="none" stroke="#737373" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search events…" />
+          </div>
+        </div>
+        <div class="comp-label">Qty Stepper</div>
+        <div style="margin-bottom:24px">
+          <div class="qty-stepper">
+            <button class="qty-btn" disabled>−</button>
+            <span class="qty-value">0</span>
+            <button class="qty-btn" onclick="const v=this.previousElementSibling;const n=parseInt(v.textContent)+1;v.textContent=n;this.previousElementSibling.previousElementSibling.disabled=false">+</button>
+          </div>
+        </div>
+        <div class="comp-label">Checkbox (terms)</div>
+        <div class="terms-row">
+          <input type="checkbox" id="t1" />
+          <label for="t1">I agree to the <a href="#" style="color:var(--primary)">terms and conditions</a> and <a href="#" style="color:var(--primary)">refund policy</a>.</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── EVENT CARD ────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Event Card</div>
+    <div class="comp-frame">
+      <div class="comp-label">Hover to see interaction (scale + grayscale removal)</div>
+      <div class="card-demo-row">
+        <!-- Card 1 -->
+        <a class="card-demo" href="#" onclick="return false">
+          <div class="card-img-wrap">
+            <div class="card-img-inner" style="background:linear-gradient(135deg,#a080d0,#5A27CC)">
+              <svg width="40" height="40" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <span class="card-badge-pos">Upcoming</span>
+          </div>
+          <div class="card-demo-title">Burna Boy — Live in Lagos</div>
+          <div class="card-demo-sub">Fri 16 May · Eko Convention Centre</div>
+          <div class="card-demo-price">₦25,000 per ticket</div>
+        </a>
+        <!-- Card 2 -->
+        <a class="card-demo" href="#" onclick="return false">
+          <div class="card-img-wrap">
+            <div class="card-img-inner" style="background:linear-gradient(135deg,#c8c0e8,#8060b0)">
+              <svg width="40" height="40" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+          </div>
+          <div class="card-demo-title">Tems — Tonight Live</div>
+          <div class="card-demo-sub">Sat 17 May · Quilox Club, VI</div>
+          <div class="card-demo-price">₦15,000 per ticket</div>
+        </a>
+        <!-- Card 3 - past -->
+        <a class="card-demo" href="#" onclick="return false">
+          <div class="card-img-wrap" style="opacity:0.7">
+            <div class="card-img-inner" style="background:linear-gradient(135deg,#c0c0c0,#888)">
+              <svg width="40" height="40" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+          </div>
+          <div class="card-demo-title">Timaya — Energy God Tour</div>
+          <div class="card-demo-sub">Sat 1 Feb · Eko Hotel, VI</div>
+          <div class="card-demo-price" style="color:var(--gray-500)">₦18,000 · Sold out</div>
+        </a>
+      </div><!-- end card-demo-row -->
+    </div>
+  </div>
+
+  <!-- ─── INFO CARD + HIGHLIGHTS ────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Info Card & Highlight Cards</div>
+    <div class="two-col">
+      <div>
+        <div class="info-card">
+          <div class="info-card-title">Event Info</div>
+          <div class="info-row">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <div><div class="info-row-label">Date</div><div class="info-row-value">Friday, 16 May 2025</div></div>
+          </div>
+          <div class="info-row">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><div class="info-row-label">Time</div><div class="info-row-value">8:00 PM – 1:00 AM</div></div>
+          </div>
+          <div class="info-row">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <div><div class="info-row-label">Venue</div><div class="info-row-value">Eko Convention Centre, VI, Lagos</div></div>
+          </div>
+          <div class="info-row">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
+            <div><div class="info-row-label">Ticket price</div><div class="info-row-value">From ₦25,000</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="highlights">
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <span class="highlight-num">2,400</span>
+            <div class="highlight-lbl">Tickets sold</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="highlight-num">4.8 / 5</span>
+            <div class="highlight-lbl">Crowd rating</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <span class="highlight-num">18</span>
+            <div class="highlight-lbl">Songs performed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── REVIEW CARD ─────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Review Card & Artist Row</div>
+    <div class="two-col">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">AO</div>
+            <div>
+              <div class="review-name">Adaeze Okonkwo</div>
+              <div class="review-date">2 Feb 2025</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Absolutely insane night. Timaya performed for almost 3 hours straight — the energy never dropped. Already waiting for the next one!</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">KA</div>
+            <div>
+              <div class="review-name">Kunle Adeyemi</div>
+              <div class="review-date">3 Feb 2025</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">Great show, great crowd. Sound system was top notch.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">Lineup</div>
+        <div class="artist-grid">
+          <div class="artist-row">
+            <div class="artist-avatar" style="background:linear-gradient(135deg,#a080d0,#5A27CC)"></div>
+            <div><div class="artist-name">Burna Boy</div><div class="artist-role">Headliner</div></div>
+          </div>
+          <div class="artist-row">
+            <div class="artist-avatar" style="background:linear-gradient(135deg,#c8c0e8,#8060b0)"></div>
+            <div><div class="artist-name">Tems</div><div class="artist-role">Special guest</div></div>
+          </div>
+          <div class="artist-row">
+            <div class="artist-avatar" style="background:linear-gradient(135deg,#d0c0a0,#a08060)"></div>
+            <div><div class="artist-name">DJ Neptune</div><div class="artist-role">DJ set</div></div>
+          </div>
+          <div class="artist-row">
+            <div class="artist-avatar" style="background:linear-gradient(135deg,#c0d0c0,#608060)"></div>
+            <div><div class="artist-name">Shalli</div><div class="artist-role">Opening act</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TICKET TYPE ─────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Ticket Type Selector</div>
+    <div class="comp-frame" style="max-width:min(480px,100%)">
+      <div class="comp-label">Ticket tiers with qty steppers</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="ticket-type selected">
+          <div class="ticket-left">
+            <span class="ticket-name">General Admission <span class="avail-badge ok">48 left</span></span>
+            <span class="ticket-desc">Standing area · Full event access</span>
+            <span class="ticket-price">₦25,000 each</span>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" disabled>−</button>
+            <span class="qty-value">2</span>
+            <button class="qty-btn">+</button>
+          </div>
+        </div>
+        <div class="ticket-type">
+          <div class="ticket-left">
+            <span class="ticket-name">VIP <span class="avail-badge low">Only 6 left</span></span>
+            <span class="ticket-desc">Reserved viewing · Lounge access</span>
+            <span class="ticket-price">₦50,000 each</span>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" disabled>−</button>
+            <span class="qty-value">0</span>
+            <button class="qty-btn">+</button>
+          </div>
+        </div>
+        <div class="ticket-type" style="opacity:0.5;pointer-events:none">
+          <div class="ticket-left">
+            <span class="ticket-name">Table for 5 <span class="avail-badge sold">Sold out</span></span>
+            <span class="ticket-desc">Private table · Bottle service</span>
+            <span class="ticket-price">₦120,000</span>
+          </div>
+          <div class="qty-stepper">
+            <button class="qty-btn" disabled>−</button>
+            <span class="qty-value">0</span>
+            <button class="qty-btn" disabled>+</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px;border-top:1px solid var(--gray-200);padding-top:16px">
+        <div class="summary-row"><span>General Admission × 2</span><span>₦50,000</span></div>
+        <div class="summary-row"><span>Service fee (5%)</span><span>₦2,500</span></div>
+        <div style="height:1px;background:var(--gray-200);margin:8px 0"></div>
+        <div class="summary-row total"><span>Total</span><span>₦52,500</span></div>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn-primary-full">Pay ₦52,500</button>
+        <p style="margin-top:10px;color:var(--gray-400);font-size:12px;text-align:center">Your ticket will be sent to your email address.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CTA BLOCK + STAT PILLS ─────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">CTA Block & Stat Pills</div>
+    <div class="cta-stat-row">
+      <div class="cta-block">
+        <p>Missed this one?</p>
+        <h3>Burna Boy is up next — don't miss out</h3>
+        <button class="btn-white-on-primary">Get tickets →</button>
+      </div>
+      <div>
+        <div class="comp-label" style="margin-bottom:12px">Stat Pills on dark (hero overlay)</div>
+        <div class="stat-pills-dark">
+          <div class="stat-pill-dark">
+            <span class="num">2,400</span>
+            <span class="lbl">Attended</span>
+          </div>
+          <div class="stat-pill-dark">
+            <span class="num">4.8</span>
+            <span class="lbl">Avg rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TOAST ──────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Toast Notification</div>
+    <div class="comp-frame">
+      <div class="comp-label">Fixed bottom-right · slides up + fades in · auto-dismiss 2.6s</div>
+      <div class="toast-row">
+        <div class="toast-demo">✓ Booking confirmed. Check your email.</div>
+        <div class="toast-demo" style="background:var(--primary)">You will be redirected soon.</div>
+        <button class="btn-outline" onclick="showToast()">Trigger toast →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── GALLERY ─────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Photo Gallery Grid</div>
+    <div class="comp-frame">
+      <div class="comp-label">3-column · 8px gap · tall item spans 2 rows</div>
+      <div class="gallery-demo">
+        <div class="gallery-item tall">
+          <div class="gallery-swatch" style="background:linear-gradient(135deg,#c8c0e8,#5A27CC);height:100%"></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch" style="background:linear-gradient(135deg,#a0c8e8,#2060a0)"></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch" style="background:linear-gradient(135deg,#e8c0a0,#a06030)"></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch" style="background:linear-gradient(135deg,#c0e8c0,#308030)"></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-swatch" style="background:linear-gradient(135deg,#e8c0c0,#a03030)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SCROLLABLE ROW ──────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Scrollable Card Strip</div>
+    <div class="comp-frame">
+      <div class="comp-label">Horizontal scroll · snap · no scrollbar visible · scroll-snap-type: x mandatory</div>
+      <div class="scroll-strip">
+        <div class="scroll-card"><div class="scroll-card-img" style="background:linear-gradient(135deg,#c8c0e8,#5A27CC)"></div><div style="font-size:14px;font-weight:700">Burna Boy</div><div style="font-size:13px;color:var(--gray-500)">Fri 16 May</div></div>
+        <div class="scroll-card"><div class="scroll-card-img" style="background:linear-gradient(135deg,#a0c8e8,#2060a0)"></div><div style="font-size:14px;font-weight:700">Tems</div><div style="font-size:13px;color:var(--gray-500)">Sat 17 May</div></div>
+        <div class="scroll-card"><div class="scroll-card-img" style="background:linear-gradient(135deg,#e8c0a0,#a06030)"></div><div style="font-size:14px;font-weight:700">Wizkid</div><div style="font-size:13px;color:var(--gray-500)">Thu 22 May</div></div>
+        <div class="scroll-card"><div class="scroll-card-img" style="background:linear-gradient(135deg,#c0e8c0,#308030)"></div><div style="font-size:14px;font-weight:700">Shalli</div><div style="font-size:13px;color:var(--gray-500)">Sun 25 May</div></div>
+        <div class="scroll-card"><div class="scroll-card-img" style="background:linear-gradient(135deg,#e8d0a0,#a08020)"></div><div style="font-size:14px;font-weight:700">Davido</div><div style="font-size:13px;color:var(--gray-500)">Fri 30 May</div></div>
+        <div class="scroll-card"><div class="scroll-card-img" style="background:linear-gradient(135deg,#d0c0e8,#602080)"></div><div style="font-size:14px;font-weight:700">Felabration</div><div style="font-size:13px;color:var(--gray-500)">Sat 7 Jun</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SPACING ─────────────────────── -->
+  <div class="ds-section">
+    <div class="ds-section-title">Key Spacing Values</div>
+    <div class="comp-frame">
+      <div class="spacing-row">
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:8px"></div>
+          <div class="spacing-label">8px</div>
+          <div class="spacing-val">gap-sm</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:10px"></div>
+          <div class="spacing-label">10px</div>
+          <div class="spacing-val">badge top</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:12px"></div>
+          <div class="spacing-label">12px</div>
+          <div class="spacing-val">row gap</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:16px"></div>
+          <div class="spacing-label">16px</div>
+          <div class="spacing-val">section gap</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:18px"></div>
+          <div class="spacing-label">18px</div>
+          <div class="spacing-val">card gap</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:20px"></div>
+          <div class="spacing-label">20px</div>
+          <div class="spacing-val">panel gap</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:24px"></div>
+          <div class="spacing-label">24px</div>
+          <div class="spacing-val">card pad</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:28px"></div>
+          <div class="spacing-label">28px</div>
+          <div class="spacing-val">grid gap</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:36px"></div>
+          <div class="spacing-label">36px</div>
+          <div class="spacing-val">section head</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:40px"></div>
+          <div class="spacing-label">40px</div>
+          <div class="spacing-val">page pad</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:48px"></div>
+          <div class="spacing-label">48px</div>
+          <div class="spacing-val">body pad-top</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:72px"></div>
+          <div class="spacing-label">72px</div>
+          <div class="spacing-val">nav height</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-bar" style="height:80px"></div>
+          <div class="spacing-label">80px</div>
+          <div class="spacing-val">body pad-btm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LIVE TOAST -->
+<div id="live-toast" style="
+  position:fixed;right:24px;bottom:24px;z-index:200;
+  transform:translateY(16px);opacity:0;pointer-events:none;
+  background:var(--black);color:var(--white);border-radius:12px;
+  padding:14px 16px;font-size:14px;font-weight:600;
+  box-shadow:0 18px 42px rgba(0,0,0,0.22);
+  transition:opacity 0.18s,transform 0.18s;
+  font-family:var(--font);
+">✓ Booking confirmed. Check your email.</div>
+
+<script>
+  function showToast() {
+    const t = document.getElementById('live-toast');
+    t.style.transform = 'translateY(0)';
+    t.style.opacity = '1';
+    clearTimeout(window._toast);
+    window._toast = setTimeout(() => {
+      t.style.transform = 'translateY(16px)';
+      t.style.opacity = '0';
+    }, 2600);
+  }
+
+  /* Pill toggle demo */
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      pill.closest('.btn-row').querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
