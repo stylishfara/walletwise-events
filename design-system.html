@@ -614,115 +614,129 @@
 
     /* ─── CTA + STAT PILLS ROW ─── */
     .cta-stat-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+    .cta-stat-right { flex: 1 1 200px; }
 
     /* ─── TOAST ROW ─── */
-    .toast-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .toast-row { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
 
     /* ─── CARD DEMO ROW ─── */
     .card-demo-row { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    /* ─── SHADOW WRAPPER (used inline, needs class override) ─── */
+    .shadow-wrapper { background: var(--gray-100); border-radius: var(--radius-card); padding: 32px; }
+
+    /* ─── GLOBAL OVERFLOW GUARD ─── */
+    html { overflow-x: hidden; }
+    body { overflow-x: hidden; }
+    img, svg { max-width: 100%; }
+    .type-spec { word-break: break-word; }
 
     /* ═══════════════════════════════════════════
        RESPONSIVE — TABLET  ≤ 768px
     ═══════════════════════════════════════════ */
     @media (max-width: 768px) {
-      nav {
-        padding: 0 20px;
-        gap: 12px;
-      }
+      nav { padding: 0 20px; }
       .nav-tag { display: none; }
-      .nav-actions-group { gap: 8px; }
 
       .page { padding: 36px 20px 80px; }
 
-      .ds-hero {
-        height: auto;
-        min-height: 220px;
-        padding: 28px 24px;
-      }
+      .ds-hero { height: auto; min-height: 200px; padding: 28px 24px; }
+      .ds-hero-title { font-size: clamp(28px, 7vw, 48px); letter-spacing: -2px; }
 
-      .ds-section { margin-bottom: 52px; }
+      .ds-section { margin-bottom: 48px; }
 
       .comp-frame { padding: 20px; }
+      .comp-label { margin-bottom: 14px; }
+      .shadow-wrapper { padding: 20px; }
 
-      .type-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 16px 0;
-      }
+      .type-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+      .type-rows { gap: 0; }
 
       .two-col { grid-template-columns: 1fr; }
       .three-col { grid-template-columns: 1fr; }
 
       .highlights { grid-template-columns: 1fr 1fr; }
 
-      .shadow-card { width: auto; flex: 1 1 140px; }
-
       .form-col { max-width: 100%; }
+      .search-bar { max-width: 100%; }
+
+      .shadow-card { width: auto; flex: 1 1 calc(50% - 12px); }
 
       .cta-block { max-width: 100%; flex: 1 1 100%; }
-      .stat-pills-dark { width: 100%; justify-content: center; }
+      .cta-stat-right { flex: 1 1 100%; }
+      .stat-pills-dark { display: flex; width: 100%; justify-content: center; }
     }
 
     /* ═══════════════════════════════════════════
        RESPONSIVE — MOBILE  ≤ 480px
     ═══════════════════════════════════════════ */
     @media (max-width: 480px) {
-      nav {
-        padding: 0 16px;
-        height: 60px;
-      }
+      nav { padding: 0 16px; height: 60px; }
       .nav-logo { font-size: 18px; }
+      .nav-tag { display: none; }
       .nav-btn-group { display: none; }
 
-      .page { padding: 24px 16px 64px; }
+      .page { padding: 20px 16px 56px; }
 
-      .ds-hero {
-        padding: 24px 20px;
-        border-radius: 12px;
-        margin-bottom: 48px;
-      }
-      .ds-hero-title { letter-spacing: -2px; }
-      .ds-hero-sub { font-size: 13px; }
+      .ds-hero { padding: 20px 18px; border-radius: 12px; margin-bottom: 40px; }
+      .ds-hero-title { font-size: clamp(26px, 8vw, 40px); letter-spacing: -1.5px; }
+      .ds-hero-sub { font-size: 13px; max-width: 100%; }
 
-      .ds-section { margin-bottom: 40px; }
-      .ds-section-title { font-size: 10px; letter-spacing: 2px; }
+      .ds-section { margin-bottom: 36px; }
+      .ds-section-title { font-size: 10px; letter-spacing: 1.8px; margin-bottom: 16px; }
 
-      .comp-frame { padding: 16px; border-radius: 12px; }
+      .comp-frame { padding: 14px; border-radius: 12px; }
+      .comp-label { font-size: 10px; letter-spacing: 1px; margin-bottom: 12px; }
+      .shadow-wrapper { padding: 14px; border-radius: 12px; }
 
-      .color-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+      .color-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .swatch-color { height: 56px; }
 
-      .type-row { gap: 8px; padding: 14px 0; }
-      .type-sample-hero { font-size: clamp(24px, 8vw, 40px); letter-spacing: -2px; }
+      .type-row { gap: 6px; padding: 12px 0; }
+      .type-spec { font-size: 11px; }
+      .type-sample-hero { font-size: clamp(22px, 7vw, 36px); letter-spacing: -1.5px; }
+      .type-sample-h2 { font-size: 20px; }
 
-      .highlights { grid-template-columns: 1fr; }
+      .highlights { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .highlight-card { padding: 14px; }
+      .highlight-num { font-size: 18px; }
+
       .artist-grid { grid-template-columns: 1fr; }
 
-      .radius-row { gap: 12px; }
-      .radius-box { width: 64px; height: 64px; }
+      .radius-row { gap: 10px; }
+      .radius-swatch { min-width: 0; }
+      .radius-box { width: 56px; height: 56px; }
+      .radius-val { font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70px; }
 
-      .shadow-row { gap: 12px; }
       .shadow-card { flex: 1 1 100%; }
 
       .btn-row { gap: 8px; }
 
-      .card-demo { width: 100%; max-width: 280px; }
+      .card-demo { width: 100%; max-width: 100%; }
+      .card-demo-row { gap: 16px; }
 
       .gallery-demo { max-width: 100%; }
 
+      .ticket-type { flex-wrap: wrap; gap: 10px; }
       .ticket-name { flex-wrap: wrap; }
+      .qty-stepper { align-self: flex-start; }
 
-      .cta-block { max-width: 100%; }
-      .stat-pills-dark {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-      }
+      .toast-demo { font-size: 13px; padding: 12px 14px; width: 100%; }
+      .toast-row { gap: 8px; }
+
+      .cta-block { flex: 1 1 100%; max-width: 100%; }
+      .cta-stat-right { flex: 1 1 100%; }
+      .stat-pills-dark { display: flex; width: 100%; flex-direction: column; gap: 8px; padding: 14px; }
       .stat-pill-dark { min-width: 0; }
 
-      .scroll-strip { gap: 12px; }
-      .scroll-card { flex: 0 0 150px; }
+      .scroll-card { flex: 0 0 130px; }
 
-      .spacing-row { gap: 10px; }
+      .spacing-row { gap: 8px; }
+      .spacing-item { min-width: 28px; }
+      .spacing-label { font-size: 10px; }
+      .spacing-val { font-size: 10px; }
+
+      .icon-size { font-size: 10px; white-space: nowrap; }
     }
   </style>
 </head>
@@ -976,7 +990,7 @@
   <!-- ─── SHADOWS ──────────────────────── -->
   <div class="ds-section">
     <div class="ds-section-title">Shadows</div>
-    <div style="background:var(--gray-100);border-radius:var(--radius-card);padding:32px;">
+    <div class="shadow-wrapper">
       <div class="shadow-row">
         <div class="shadow-card" style="box-shadow:0 2px 8px rgba(0,0,0,0.06)">
           <div class="shadow-label">Subtle</div>
@@ -1398,7 +1412,7 @@
         <h3>Burna Boy is up next — don't miss out</h3>
         <button class="btn-white-on-primary">Get tickets →</button>
       </div>
-      <div>
+      <div class="cta-stat-right">
         <div class="comp-label" style="margin-bottom:12px">Stat Pills on dark (hero overlay)</div>
         <div class="stat-pills-dark">
           <div class="stat-pill-dark">
