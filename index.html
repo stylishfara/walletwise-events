@@ -431,6 +431,89 @@
     }
     .img-placeholder svg { opacity: 0.35; }
 
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+        height: 60px;
+        gap: 12px;
+      }
+      .nav-search  { display: none; }
+      .nav-actions { display: none; }
+
+      .hero {
+        height: 340px;
+        padding: 12px 16px 0;
+      }
+      .hero-title-block {
+        left: 28px;
+        bottom: 28px;
+        max-width: calc(100% - 56px);
+      }
+      .hero-title {
+        font-size: clamp(26px, 7vw, 44px);
+        letter-spacing: -1.5px;
+      }
+      .hero-label { font-size: 10px; letter-spacing: 1.5px; }
+
+      .filter-bar {
+        padding: 20px 16px 0;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .filter-bar .filter-search { margin-left: 0; flex: 1 1 100%; }
+      .filter-search input { width: 100%; min-width: 0; }
+
+      .section-head { padding: 24px 16px 14px; }
+      .section-head h2 { font-size: 20px; }
+
+      .cards-wrapper { padding: 0 16px 16px; }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 12px;
+        padding: 0 16px 32px;
+      }
+
+      .divider { margin: 8px 16px; }
+      .no-results { padding: 24px 16px 60px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 16px; }
+      .nav-logo { font-size: 18px; }
+
+      .hero {
+        height: 260px;
+        padding: 10px 12px 0;
+      }
+      .hero-title-block {
+        left: 20px;
+        bottom: 20px;
+        max-width: calc(100% - 40px);
+      }
+      .hero-title {
+        font-size: clamp(22px, 8vw, 34px);
+        letter-spacing: -1px;
+      }
+
+      .filter-bar { padding: 14px 12px 0; gap: 8px; }
+      .pill { padding: 8px 16px; font-size: 13px; }
+
+      .section-head { padding: 18px 12px 12px; }
+      .section-head h2 { font-size: 18px; }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px 10px;
+        padding: 0 12px 28px;
+      }
+
+      .divider { margin: 6px 12px; }
+    }
+
   </style>
 </head>
 <body>

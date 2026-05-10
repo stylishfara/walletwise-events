@@ -862,6 +862,163 @@
       display: none;
     }
 
+    /* ─── MOBILE ──────────────────────────────────────── */
+    html, body { overflow-x: hidden; }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+        height: 60px;
+      }
+
+      .hero {
+        height: 360px;
+      }
+
+      .hero-content {
+        left: 20px;
+        right: 20px;
+        bottom: 24px;
+      }
+
+      .hero-title {
+        font-size: clamp(24px, 6vw, 40px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-meta-row {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+      }
+
+      .hero-stats {
+        gap: 6px;
+      }
+
+      .stat-pill {
+        min-width: 90px;
+        padding: 6px 12px;
+      }
+
+      .stat-pill .num {
+        font-size: 16px;
+      }
+
+      .body {
+        grid-template-columns: 1fr;
+        padding: 28px 20px 60px;
+        gap: 32px;
+        max-width: 100%;
+      }
+
+      .is-upcoming .body {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .booking-form {
+        position: static;
+      }
+
+      .highlights {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.tall {
+        grid-row: auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      .lineup {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .detail-panels {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .has-sidebar-stats .sidebar .hero-stats,
+      .has-sidebar-stats .detail-panels .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .hero {
+        height: 280px;
+      }
+
+      .hero-content {
+        left: 16px;
+        right: 16px;
+        bottom: 18px;
+      }
+
+      .hero-title {
+        font-size: clamp(20px, 7.5vw, 32px);
+        letter-spacing: -1px;
+        margin-bottom: 8px;
+      }
+
+      .hero-meta-row {
+        gap: 6px 12px;
+      }
+
+      .hero-meta-item {
+        font-size: 12px;
+      }
+
+      .hero-stats {
+        margin-top: 10px;
+      }
+
+      .body {
+        padding: 20px 16px 48px;
+        gap: 24px;
+      }
+
+      .highlights {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .highlight-card {
+        padding: 14px;
+      }
+
+      .highlight-num {
+        font-size: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+
+      .info-card {
+        padding: 18px;
+      }
+
+      .booking-form {
+        padding: 20px;
+      }
+
+      .booking-title {
+        font-size: 18px;
+      }
+    }
+
   </style>
 </head>
 <body>
