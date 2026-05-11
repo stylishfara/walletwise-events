@@ -288,17 +288,31 @@
     .prize-feature::after {
       content: "";
       position: absolute;
-      inset: auto -22px 62px auto;
-      width: min(280px, 82%);
-      aspect-ratio: 2.4 / 1;
-      background: center / contain no-repeat url("data:image/svg+xml,%3Csvg width='640' height='270' viewBox='0 0 640 270' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M77 176h486c22 0 40-18 40-40v-7c0-15-9-29-23-35l-83-34c-16-7-33-10-50-10H301c-28 0-55 10-77 28l-73 61H77c-20 0-36 16-36 36v1c0 17 14 31 31 31h10c7-18 25-31 46-31s39 13 46 31h284c7-18 25-31 46-31s39 13 46 31h24c17 0 31-14 31-31v-1' stroke='%23404040' stroke-width='18' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M238 124h272M286 82l-43 42M384 80v44M491 84l32 40' stroke='%23404040' stroke-width='16' stroke-linecap='round'/%3E%3Ccircle cx='128' cy='207' r='38' stroke='%23404040' stroke-width='18'/%3E%3Ccircle cx='504' cy='207' r='38' stroke='%23404040' stroke-width='18'/%3E%3C/svg%3E");
-      opacity: 0.09;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 55%;
+      background: linear-gradient(to bottom, #eeeeee 20%, transparent);
+      z-index: 1;
       pointer-events: none;
+    }
+
+    .prize-feature-img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 72%;
+      object-fit: cover;
+      object-position: center 60%;
+      display: block;
+      z-index: 0;
     }
 
     .prize-feature > * {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .prize-feature-top {
@@ -2277,6 +2291,7 @@
       ${eventData.prizeCopy ? `<p class="prize-copy">${eventData.prizeCopy}</p>` : ''}
       <div class="prize-layout">
         <div class="prize-feature">
+          <img class="prize-feature-img" src="2024-cadillac-escalade-v-series-010.jpg" alt="Grand prize car" />
           <div class="prize-feature-top">
             <span class="prize-feature-label">Grand prize</span>
             <span class="prize-feature-number">01</span>
