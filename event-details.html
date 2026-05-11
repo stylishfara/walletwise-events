@@ -2741,6 +2741,21 @@
     if (pastData.formType === 'pageant') {
       document.body.classList.add('is-past-pageant');
       renderBookingApplicantFields(pastData);
+
+      // Hide lineup card
+      const lineupCard = [...document.querySelectorAll('.sidebar .info-card')]
+        .find(c => c.querySelector('.info-card-title')?.textContent.trim() === 'Lineup');
+      if (lineupCard) lineupCard.style.display = 'none';
+
+      // Hide reviews section and its heading + divider
+      const reviews = document.querySelector('.reviews');
+      if (reviews) {
+        const heading = reviews.previousElementSibling;
+        const divider = heading?.previousElementSibling;
+        reviews.style.display = 'none';
+        if (heading) heading.style.display = 'none';
+        if (divider?.classList.contains('divider')) divider.style.display = 'none';
+      }
     }
     document.querySelector('.btn-upcoming').href = '#';
     renderPastEvent(pastData);
