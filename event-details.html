@@ -2742,6 +2742,9 @@
       document.body.classList.add('is-past-pageant');
       renderBookingApplicantFields(pastData);
 
+      // Hide stat pills
+      document.querySelector('.hero-stats')?.style.setProperty('display', 'none');
+
       // Hide lineup card
       const lineupCard = [...document.querySelectorAll('.sidebar .info-card')]
         .find(c => c.querySelector('.info-card-title')?.textContent.trim() === 'Lineup');
