@@ -358,8 +358,8 @@
     }
 
     .prize-list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       border: 1.5px solid var(--gray-200);
       border-radius: 16px;
       background: var(--white);
@@ -367,33 +367,27 @@
     }
 
     .prize-item {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      align-items: center;
-      gap: 16px;
-      min-height: 96px;
-      padding: 18px 20px;
-      background: var(--white);
-      border-bottom: 1.5px solid var(--gray-200);
+      border-right: 1.5px solid var(--gray-200);
+      border-bottom: none;
     }
 
     .prize-item:last-child {
-      border-bottom: none;
+      border-right: none;
+    }
+
+    .prize-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      min-height: 96px;
+      padding: 18px 20px;
+      background: var(--white);
     }
 
 
     .prize-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius-pill);
-      background: var(--gray-100);
-      border: 1px solid var(--gray-200);
-      color: var(--gray-500);
-      font-size: 12px;
-      font-weight: 600;
+      display: none;
     }
 
     .prize-name {
