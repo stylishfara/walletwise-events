@@ -288,26 +288,23 @@
     .prize-feature::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 55%;
-      background: linear-gradient(to bottom, #eeeeee 20%, transparent);
+      inset: 0;
+      background: rgba(238,238,238,0.55);
       z-index: 1;
       pointer-events: none;
     }
 
     .prize-feature-img {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      inset: 0;
       width: 100%;
-      height: 72%;
+      height: 100%;
       object-fit: cover;
-      object-position: center 60%;
+      object-position: center;
       display: block;
       z-index: 0;
+      opacity: 0.6;
+      filter: grayscale(100%);
     }
 
     .prize-feature > * {
