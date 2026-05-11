@@ -2745,6 +2745,14 @@
       // Hide stat pills
       document.querySelector('.hero-stats')?.style.setProperty('display', 'none');
 
+      // Hide event highlights section
+      const highlights = document.querySelector('.highlights');
+      if (highlights) {
+        const heading = highlights.previousElementSibling;
+        highlights.style.display = 'none';
+        if (heading) heading.style.display = 'none';
+      }
+
       // Hide lineup card
       const lineupCard = [...document.querySelectorAll('.sidebar .info-card')]
         .find(c => c.querySelector('.info-card-title')?.textContent.trim() === 'Lineup');
