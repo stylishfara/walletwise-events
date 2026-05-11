@@ -265,10 +265,14 @@
 
     .prize-layout {
       display: grid;
-      grid-template-columns: minmax(220px, 0.85fr) 1.4fr;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
       align-items: stretch;
       margin-top: 22px;
+    }
+
+    .prize-list-full {
+      grid-column: 1 / -1;
     }
 
     .prize-feature {
@@ -2290,7 +2294,7 @@
     }
 
     section.classList.add('visible');
-    const [featuredPrize, ...otherPrizes] = eventData.prizes;
+    const [firstPrize, secondPrize, ...otherPrizes] = eventData.prizes;
     section.innerHTML = `
       <div class="prize-kicker">WHAT YOU WIN</div>
       <div class="prize-title">${eventData.prizeTitle || 'Prizes to be won'}</div>
@@ -2303,17 +2307,27 @@
             <span class="prize-feature-number">01</span>
           </div>
           <div>
-            <div class="prize-feature-name">${featuredPrize}</div>
+            <div class="prize-feature-name">${firstPrize}</div>
             <div class="prize-feature-note">${eventData.prizeNotes?.[0] || 'Prize package benefit'}</div>
           </div>
         </div>
-        <div class="prize-list">
+        <div class="prize-feature">
+          <div class="prize-feature-top">
+            <span class="prize-feature-label">2nd prize</span>
+            <span class="prize-feature-number">02</span>
+          </div>
+          <div>
+            <div class="prize-feature-name">${secondPrize}</div>
+            <div class="prize-feature-note">${eventData.prizeNotes?.[1] || 'Prize package benefit'}</div>
+          </div>
+        </div>
+        <div class="prize-list prize-list-full">
           ${otherPrizes.map((prize, index) => `
             <div class="prize-item">
-              <span class="prize-number">${String(index + 2).padStart(2, '0')}</span>
+              <span class="prize-number">${String(index + 3).padStart(2, '0')}</span>
               <div>
                 <div class="prize-name">${prize}</div>
-                <div class="prize-note">${eventData.prizeNotes?.[index + 1] || 'Prize package benefit'}</div>
+                <div class="prize-note">${eventData.prizeNotes?.[index + 2] || 'Prize package benefit'}</div>
               </div>
             </div>
           `).join('')}
