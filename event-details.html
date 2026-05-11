@@ -1110,6 +1110,56 @@
       display: none;
     }
 
+    /* ─── PAST PAGEANT ────────────────────────────────── */
+    .is-past-pageant .body {
+      max-width: 1320px;
+      grid-template-columns: minmax(0, 1fr) 420px;
+    }
+
+    .is-past-pageant .booking-form {
+      display: block;
+      position: relative;
+      pointer-events: none;
+    }
+
+    .is-past-pageant .booking-form::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.82);
+      border-radius: var(--radius-card);
+      z-index: 10;
+    }
+
+    .booking-closed-banner {
+      display: none;
+    }
+
+    .is-past-pageant .booking-closed-banner {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .booking-closed-banner-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.3px;
+    }
+
+    .booking-closed-banner-sub {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
     /* ─── MOBILE ──────────────────────────────────────── */
     html, body { overflow-x: hidden; }
 
@@ -1587,6 +1637,10 @@
     </div>
 
     <div class="booking-form">
+      <div class="booking-closed-banner">
+        <div class="booking-closed-banner-title">Registration Closed</div>
+        <div class="booking-closed-banner-sub">Applications for this event are no longer open.</div>
+      </div>
       <div class="booking-title">Book your ticket</div>
       <div class="booking-subtitle">Select your ticket type and enter your details to finish booking.</div>
 
@@ -1793,6 +1847,38 @@
         ['h1.jpeg', 'Positive Force', 'Live band'],
         ['1920x1072mv.jpg', 'Afrobeat dancers', 'Stage performance'],
         ['TONIGHT-@temsbaby.jpg', 'Resident DJ', 'DJ set']
+      ]
+    },
+    'mbgn-2025': {
+      title: 'Most Beautiful<br>Girl in Nigeria',
+      documentTitle: 'Most Beautiful Girl in Nigeria 2025 · WalletWise Events',
+      badge: 'Past event · Sat 19 Apr 2025',
+      image: 'woman.png',
+      alt: 'Most Beautiful Girl in Nigeria 2025',
+      venueShort: 'Eko Hotel, Victoria Island',
+      time: '5:00 PM – 10:00 PM',
+      date: 'Saturday, 19 April 2025',
+      venue: 'Eko Hotel Grand Ballroom, Victoria Island, Lagos',
+      price: '₦5,000 · Sold out',
+      attendance: '1,800 people',
+      attended: '1,800',
+      rating: '4.7',
+      capacity: '1,800',
+      ticketsLabel: 'Attendees',
+      ratingLabel: 'Event rating',
+      songs: '32',
+      thirdHighlightLabel: 'Contestants',
+      formType: 'pageant',
+      about: `The 2025 Most Beautiful Girl in Nigeria pageant brought together 36 finalists from across the country for a full evening of runway presentations, talent showcases, and the final crowning ceremony at the Eko Hotel Grand Ballroom.<br><br>The event drew a capacity crowd, with live music performances between segments and a high-production stage show that highlighted culture, confidence, and representation.`,
+      artists: [
+        ['woman.png', 'MBGN 2025 Winner', 'Grand winner'],
+        ['h3.jpeg', 'First Runner-Up', 'Runner-up'],
+        ['h1.jpeg', 'Second Runner-Up', 'Runner-up'],
+        ['TONIGHT-@temsbaby.jpg', 'Event host', 'MC'],
+        ['h2.jpeg', 'Guest performer', 'Live performance'],
+        ['1920x1072mv.jpg', 'Judges panel', 'Judging committee'],
+        ['shalli.png', 'Stylist team', 'Wardrobe'],
+        ['burna-boy-apple-music-live-2023-billboard-1548.jpg', 'Production crew', 'Stage production']
       ]
     }
   };
@@ -2631,9 +2717,14 @@
   }
 
   if (status === 'past') {
+    const pastData = pastEvents[eventKey] || pastEvents.timaya;
     document.body.classList.add('has-sidebar-stats');
+    if (pastData.formType === 'pageant') {
+      document.body.classList.add('is-past-pageant');
+      renderBookingApplicantFields(pastData);
+    }
     document.querySelector('.btn-upcoming').href = '#';
-    renderPastEvent(pastEvents[eventKey] || pastEvents.timaya);
+    renderPastEvent(pastData);
   }
 
   if (status === 'upcoming') {
