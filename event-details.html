@@ -2733,6 +2733,19 @@
     }
     document.querySelector('.btn-upcoming').href = '#';
     renderPastEvent(pastData);
+
+    if (pastData.formType === 'pageant') {
+      requestAnimationFrame(() => {
+        const aboutTitle = [...document.querySelectorAll('.section-title')]
+          .find(el => el.offsetParent !== null);
+        const bookingForm = document.querySelector('.booking-form');
+        const sidebar = document.querySelector('.sidebar');
+        if (aboutTitle && bookingForm && sidebar) {
+          const offset = aboutTitle.getBoundingClientRect().top - sidebar.getBoundingClientRect().top;
+          if (offset > 0) bookingForm.style.marginTop = offset + 'px';
+        }
+      });
+    }
   }
 
   if (status === 'upcoming') {
