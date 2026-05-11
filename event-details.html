@@ -2145,13 +2145,13 @@
     document.querySelector('.booking-subtitle').textContent = isPageant
       ? 'Enter the contestant details required for the beauty pageant application.'
       : 'Select your ticket type and enter your details to finish booking.';
-    document.querySelector('.booking-note').textContent = isPageant
-      ? 'Your contest application receipt will be sent to your email address.'
+    document.querySelector('.booking-note').innerHTML = isPageant
+      ? '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;vertical-align:-1px;margin-right:5px;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Your information is secure'
       : 'Your ticket will be sent to your email address.';
     document.querySelector('.terms-row label').innerHTML = isPageant
-      ? 'I attest that the information provided is true and correct, and I understand that application payments are non-refundable.'
+      ? 'I confirm that all information provided is accurate. I agree to the terms and conditions of Miss Indigenous Nigeria 2026 and consent to my data being used for registration purposes.'
       : 'I agree to the <a href="#">terms and conditions</a> and <a href="#">refund policy</a>. no refunds within 48hrs of the event.';
-    document.getElementById('booking-submit').textContent = isPageant ? 'Submit application' : 'Pay ₦0';
+    document.getElementById('booking-submit').textContent = isPageant ? 'Proceed to payment — ₦10,000 →' : 'Pay ₦0';
 
     if (!isPageant) {
       container.innerHTML = `
@@ -2334,7 +2334,7 @@
   function updateBookingSummary() {
     const isPageant = document.querySelector('.booking-form')?.dataset.formType === 'pageant';
     if (isPageant) {
-      document.getElementById('booking-submit').textContent = 'Submit application';
+      document.getElementById('booking-submit').textContent = 'Proceed to payment — ₦10,000 →';
       return;
     }
 
