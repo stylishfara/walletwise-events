@@ -1114,10 +1114,25 @@
     .is-past-pageant .body {
       max-width: 1320px;
       grid-template-columns: minmax(0, 1fr) 420px;
+      align-items: stretch;
+    }
+
+    .is-past-pageant .sidebar {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .is-past-pageant .sidebar .map-card,
+    .is-past-pageant .sidebar .upcoming-cta {
+      display: none;
     }
 
     .is-past-pageant .booking-form {
-      display: block;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
     }
 
     .is-past-pageant .booking-form > *:not(.booking-closed-banner) {
