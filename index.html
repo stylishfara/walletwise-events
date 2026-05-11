@@ -17,6 +17,9 @@
       --gray-400: #a3a3a3;
       --gray-500: #737373;
       --gray-700: #404040;
+      --primary-accent: #f0ebff;
+      --highlight: #fae8ff;
+      --highlight-foreground: #c026d3;
       --radius-card: 16px;
       --radius-pill: 100px;
       --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -221,8 +224,8 @@
     }
 
     .cat-dropdown-btn.has-selection {
-      border-color: var(--primary);
-      color: var(--primary);
+      border-color: #e8e8e8;
+      color: var(--black);
     }
 
     .cat-dropdown-btn svg {
@@ -274,8 +277,8 @@
 
     .cat-dropdown-menu button.active {
       font-weight: 700;
-      color: var(--primary);
-      background: var(--primary-light, #f0ebff);
+      color: var(--black);
+      background: var(--gray-100);
     }
 
     .filter-search {
@@ -423,6 +426,36 @@
       filter: grayscale(0%);
     }
 
+    .card[data-category] .card-img-wrap::before {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: var(--radius-pill);
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      background: rgba(255,255,255,0.24);
+      border: 1px solid rgba(255,255,255,0.52);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 8px 18px rgba(0,0,0,0.16);
+      color: var(--white);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.28);
+    }
+
+    .card[data-category="concert"] .card-img-wrap::before {
+      content: "Concert";
+    }
+
+    .card[data-category="beauty-pageant"] .card-img-wrap::before {
+      content: "Beauty Pageant";
+    }
+
     .card-badge {
       position: absolute;
       top: 10px;
@@ -473,8 +506,10 @@
     .card-price {
       font-size: 14px;
       font-weight: 600;
+      margin-top: 8px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 6px;
     }
 
@@ -684,13 +719,13 @@
       <div class="card-price">₦15,000 per ticket</div>
     </a>
 
-    <a class="card" data-type="upcoming" data-category="beauty-pageant" href="#">
+    <a class="card" data-type="upcoming" data-category="beauty-pageant" href="event-details.html?status=upcoming&event=miss-lagos">
       <div class="card-img-wrap">
-        <img src="h3.jpeg" alt="Miss Lagos 2026"/>
+        <img src="h3.jpeg" alt="Miss Indigenous Nigeria 2026"/>
       </div>
-      <div class="card-title">Miss Lagos 2026</div>
-      <div class="card-sub">Sat 24 May · Eko Hotel, Victoria Island</div>
-      <div class="card-price">₦8,000 per ticket</div>
+      <div class="card-title">Miss Indigenous Nigeria 2026</div>
+      <div class="card-sub">Sat 24 May · Transcorp Hilton, Abuja</div>
+      <div class="card-price">₦8,000 per form</div>
     </a>
 
     <a class="card" data-type="upcoming" data-category="concert" href="event-details.html?status=upcoming&event=wizkid">

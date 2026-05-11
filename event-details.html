@@ -65,7 +65,7 @@
 
     .nav-logo {
       font-size: 20px;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--primary);
       display: flex;
       align-items: center;
@@ -155,7 +155,7 @@
       border-radius: var(--radius-pill);
       padding: 12px 22px;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 600;
       text-decoration: none;
       box-shadow: 0 12px 32px rgba(0,0,0,0.22);
     }
@@ -179,7 +179,7 @@
 
     .stat-pill .num {
       font-size: 20px;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--white);
       display: block;
     }
@@ -221,6 +221,176 @@
       font-size: 15px;
       line-height: 1.75;
       color: var(--gray-500);
+    }
+
+    .prize-section {
+      display: none;
+      margin-top: 28px;
+      border-radius: var(--radius-card);
+      padding: 24px;
+      background: var(--gray-100);
+      border: 1.5px solid var(--gray-200);
+      color: var(--black);
+      overflow: hidden;
+    }
+
+    .prize-section.visible {
+      display: block;
+    }
+
+    .prize-kicker {
+      color: var(--gray-500);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .prize-title {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .prize-copy {
+      max-width: 620px;
+      margin-bottom: 22px;
+      color: var(--gray-500);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .prize-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.85fr) 1.4fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 22px;
+    }
+
+    .prize-feature {
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 16px;
+      padding: 22px;
+      background: #eeeeee;
+      border: 1.5px solid var(--gray-200);
+      color: var(--black);
+      overflow: hidden;
+    }
+
+    .prize-feature::after {
+      content: "";
+      position: absolute;
+      inset: auto -22px 62px auto;
+      width: min(280px, 82%);
+      aspect-ratio: 2.4 / 1;
+      background: center / contain no-repeat url("data:image/svg+xml,%3Csvg width='640' height='270' viewBox='0 0 640 270' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M77 176h486c22 0 40-18 40-40v-7c0-15-9-29-23-35l-83-34c-16-7-33-10-50-10H301c-28 0-55 10-77 28l-73 61H77c-20 0-36 16-36 36v1c0 17 14 31 31 31h10c7-18 25-31 46-31s39 13 46 31h284c7-18 25-31 46-31s39 13 46 31h24c17 0 31-14 31-31v-1' stroke='%23404040' stroke-width='18' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M238 124h272M286 82l-43 42M384 80v44M491 84l32 40' stroke='%23404040' stroke-width='16' stroke-linecap='round'/%3E%3Ccircle cx='128' cy='207' r='38' stroke='%23404040' stroke-width='18'/%3E%3Ccircle cx='504' cy='207' r='38' stroke='%23404040' stroke-width='18'/%3E%3C/svg%3E");
+      opacity: 0.09;
+      pointer-events: none;
+    }
+
+    .prize-feature > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .prize-feature-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .prize-feature-label {
+      color: var(--gray-500);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .prize-feature-number {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--gray-300);
+      padding: 5px 9px;
+      color: var(--gray-500);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .prize-feature-name {
+      margin-top: 80px;
+      color: var(--black);
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 600;
+      line-height: 0.98;
+      letter-spacing: -1px;
+    }
+
+    .prize-feature-note {
+      margin-top: 12px;
+      color: var(--gray-500);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .prize-list {
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .prize-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      align-items: center;
+      gap: 16px;
+      min-height: 96px;
+      padding: 18px 20px;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--gray-200);
+    }
+
+    .prize-item:last-child {
+      border-bottom: none;
+    }
+
+    .prize-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-pill);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-500);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .prize-name {
+      color: var(--black);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.2px;
+    }
+
+    .prize-note {
+      color: var(--gray-500);
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     /* Photo gallery */
@@ -280,7 +450,7 @@
 
     .highlight-num {
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--black);
       display: block;
     }
@@ -493,7 +663,7 @@
 
     .upcoming-cta h3 {
       font-size: 17px;
-      font-weight: 800;
+      font-weight: 600;
       margin-bottom: 16px;
       letter-spacing: -0.3px;
     }
@@ -591,7 +761,7 @@
 
     .booking-title {
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: -0.4px;
       margin-bottom: 6px;
     }
@@ -663,7 +833,7 @@
 
     .booking-ticket-price {
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--black);
       margin-top: 8px;
     }
@@ -719,7 +889,13 @@
       margin-bottom: 18px;
     }
 
-    .booking-field input {
+    .booking-form[data-form-type="pageant"] .booking-field {
+      margin-bottom: 24px;
+    }
+
+    .booking-field input,
+    .booking-field select,
+    .booking-field textarea {
       width: 100%;
       border: 1.5px solid var(--gray-200);
       border-radius: 10px;
@@ -728,11 +904,56 @@
       font-family: var(--font);
       font-size: 15px;
       outline: none;
+      resize: vertical;
     }
 
-    .booking-field input:focus { border-color: var(--primary); }
-    .booking-field input::placeholder { color: var(--gray-400); }
-    .booking-field input.error { border-color: var(--red); }
+    .booking-field input:focus,
+    .booking-field select:focus,
+    .booking-field textarea:focus { border-color: var(--primary); }
+    .booking-field input::placeholder,
+    .booking-field textarea::placeholder { color: var(--gray-400); }
+    .booking-field input.error,
+    .booking-field select.error,
+    .booking-field textarea.error { border-color: var(--red); }
+
+    .booking-field select {
+      appearance: none;
+      background:
+        linear-gradient(45deg, transparent 50%, var(--gray-500) 50%) calc(100% - 18px) 50% / 6px 6px no-repeat,
+        linear-gradient(135deg, var(--gray-500) 50%, transparent 50%) calc(100% - 13px) 50% / 6px 6px no-repeat,
+        var(--white);
+    }
+
+    .booking-field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .booking-option-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .booking-option {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-pill);
+      padding: 9px 12px;
+      color: var(--black);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .booking-option input {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--primary);
+    }
 
     .field-error {
       display: none;
@@ -765,7 +986,7 @@
     .booking-summary-row.total {
       color: var(--black);
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 600;
     }
 
     .terms-row {
@@ -810,7 +1031,7 @@
       color: var(--white);
       font-family: var(--font);
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -923,6 +1144,26 @@
       .highlights {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+      }
+
+      .prize-section {
+        padding: 18px;
+      }
+
+      .prize-kicker {
+        letter-spacing: 1px;
+      }
+
+      .prize-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .prize-item {
+        min-height: 88px;
+      }
+
+      .prize-feature-name {
+        margin-top: 56px;
       }
 
       .gallery {
@@ -1131,6 +1372,7 @@
       <br><br>
       Special guest appearances from Patoranking and Small Doctor sent the crowd into a frenzy. The production was a step above anything seen on the Lagos circuit this year — pyrotechnics, live band, and a light show that had everyone talking.
     </p>
+    <div class="prize-section" id="prize-section"></div>
     <div class="detail-panels"></div>
 
     <div class="divider"></div>
@@ -1322,23 +1564,7 @@
       <div class="booking-section-label">Select ticket type</div>
       <div class="booking-ticket-types" id="booking-ticket-types"></div>
 
-      <div class="booking-field">
-        <label for="booking-name">Full name</label>
-        <input id="booking-name" type="text" placeholder="e.g. Chidi Okeke" oninput="validateBookingForm()" />
-        <div class="field-error" id="booking-name-error">Please enter your full name.</div>
-      </div>
-
-      <div class="booking-field">
-        <label for="booking-email">Email address</label>
-        <input id="booking-email" type="email" placeholder="you@example.com" oninput="validateBookingForm()" />
-        <div class="field-error" id="booking-email-error">Please enter a valid email address.</div>
-      </div>
-
-      <div class="booking-field">
-        <label for="booking-phone">Phone number</label>
-        <input id="booking-phone" type="tel" placeholder="+234 800 000 0000" oninput="validateBookingForm()" />
-        <div class="field-error" id="booking-phone-error">Please enter a valid phone number.</div>
-      </div>
+      <div id="booking-applicant-fields"></div>
 
       <div class="booking-divider"></div>
 
@@ -1599,6 +1825,65 @@
         ['h3.jpeg', 'Percussionist', 'Live set']
       ]
     },
+    'miss-lagos': {
+      title: 'Miss Indigenous<br>Nigeria 2026',
+      documentTitle: 'Miss Indigenous Nigeria 2026 · WalletWise Events',
+      badge: 'Upcoming event · Sat 24 May 2026',
+      image: 'h3.jpeg',
+      alt: 'Miss Indigenous Nigeria 2026',
+      venueShort: 'Transcorp Hilton, Abuja',
+      time: '6:00 PM - 10:30 PM',
+      date: 'Saturday, 24 May 2026',
+      venue: 'Transcorp Hilton, Abuja',
+      price: 'From ₦8,000',
+      capacity: '1,500 capacity',
+      seatsLeft: '10th',
+      firstHighlightLabel: 'Edition',
+      fromPrice: '₦8k',
+      tiers: '3',
+      songs: '8+',
+      formType: 'pageant',
+      thirdHighlightLabel: 'Show segments',
+      priceLabel: 'Form price',
+      organizer: 'Packaged by Ejanla 1 of Abuja',
+      theme: 'More Than Just a Pageant',
+      expectationTitle1: 'Main pageant',
+      expectationDate1: 'Runway and stage',
+      expectationText1: 'A full-stage beauty pageant program with contestant introductions, runway rounds, judging moments, and final crowning.',
+      expectationTitle2: 'Guest performances',
+      expectationDate2: 'Between rounds',
+      expectationText2: 'Music, hosting, and stage transitions keep the room active between each major pageant segment.',
+      expectationTitle3: 'Ticket access',
+      expectationDate3: 'Entry zones',
+      expectationText3: 'Use your booking confirmation and arrive early enough for check-in, seating, and venue access.',
+      prizeTitle: 'Star Prize Package',
+      prizeCopy: '',
+      prizes: [
+        'Official Car',
+        'Plot of Land',
+        '1 Year Mobile Subscription',
+        'Brand Endorsements',
+        'Slot for Miss Universe Ireland'
+      ],
+      prizeNotes: [
+        'Grand winner mobility package',
+        'Asset award for the crowned queen',
+        'Full mobile plan coverage',
+        'Paid campaign and ambassador opportunities',
+        'International pageant pathway'
+      ],
+      about: `Miss Indigenous Nigeria returns for its 10th Edition in 2026, packaged by Ejanla 1 of Abuja. The grand finale takes place at Transcorp Hilton, Abuja, under the theme <em>More Than Just a Pageant</em>.<br><br>The event celebrates culture, confidence, representation, and stage presence through contestant showcases, runway moments, guest performances, and a final crowning ceremony.`,
+      artists: [
+        ['h3.jpeg', 'Miss Indigenous Nigeria', 'Main pageant'],
+        ['h1.jpeg', 'Contestants', 'Finalists'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest performer', 'Interlude performance'],
+        ['shalli.png', 'Host', 'Stage host'],
+        ['h2.jpeg', 'Judging panel', 'Judges'],
+        ['1920x1072mv.jpg', 'Production team', 'Stage production'],
+        ['h1.jpeg', 'Runway segment', 'Fashion showcase'],
+        ['h3.jpeg', 'Crowning moment', 'Finale']
+      ]
+    },
     wizkid: {
       title: 'Wizkid —<br>Homecoming Concert',
       documentTitle: 'Wizkid — Homecoming Concert · WalletWise Events',
@@ -1774,6 +2059,11 @@
       ['VIP', 'Priority entry · Lounge access', 35000, 6, 9, 'Only 9 left', 'low'],
       ['Table for 4', 'Reserved table · Premium service', 150000, 0, 0, 'Sold out', 'sold']
     ],
+    'miss-lagos': [
+      ['Regular', 'General seating · Full event access', 8000, 10, 86, '86 left', 'ok'],
+      ['VIP', 'Priority seating · Lounge access', 25000, 6, 12, 'Only 12 left', 'low'],
+      ['Table for 4', 'Reserved table · Premium service', 100000, 0, 0, 'Sold out', 'sold']
+    ],
     wizkid: [
       ['General Admission', 'Standing field access', 30000, 10, 80, '80 left', 'ok'],
       ['VIP', 'Premium viewing area', 75000, 6, 14, 'Only 14 left', 'low'],
@@ -1827,6 +2117,190 @@
     }).join('');
   }
 
+  function renderBookingApplicantFields(eventData) {
+    const container = document.getElementById('booking-applicant-fields');
+    const isPageant = eventData.formType === 'pageant';
+    const bookingForm = document.querySelector('.booking-form');
+    const ticketLabel = document.querySelector('.booking-section-label');
+    const ticketTypes = document.getElementById('booking-ticket-types');
+    const bookingSummary = document.getElementById('booking-summary');
+
+    bookingForm.dataset.formType = isPageant ? 'pageant' : 'ticket';
+    ticketLabel.style.display = isPageant ? 'none' : '';
+    ticketTypes.style.display = isPageant ? 'none' : '';
+    bookingSummary.style.display = isPageant ? 'none' : '';
+    document.querySelector('.booking-title').textContent = isPageant ? 'Contest form' : 'Book your ticket';
+    document.querySelector('.booking-subtitle').textContent = isPageant
+      ? 'Enter the contestant details required for the beauty pageant application.'
+      : 'Select your ticket type and enter your details to finish booking.';
+    document.querySelector('.booking-note').textContent = isPageant
+      ? 'Your contest application receipt will be sent to your email address.'
+      : 'Your ticket will be sent to your email address.';
+    document.querySelector('.terms-row label').innerHTML = isPageant
+      ? 'I attest that the information provided is true and correct, and I understand that application payments are non-refundable.'
+      : 'I agree to the <a href="#">terms and conditions</a> and <a href="#">refund policy</a>. no refunds within 48hrs of the event.';
+    document.getElementById('booking-submit').textContent = isPageant ? 'Submit application' : 'Pay ₦0';
+
+    if (!isPageant) {
+      container.innerHTML = `
+        <div class="booking-field">
+          <label for="booking-name">Full name</label>
+          <input id="booking-name" data-required type="text" placeholder="e.g. Chidi Okeke" oninput="validateBookingForm()" />
+          <div class="field-error" id="booking-name-error">Please enter your full name.</div>
+        </div>
+        <div class="booking-field">
+          <label for="booking-email">Email address</label>
+          <input id="booking-email" data-required type="email" placeholder="you@example.com" oninput="validateBookingForm()" />
+          <div class="field-error" id="booking-email-error">Please enter a valid email address.</div>
+        </div>
+        <div class="booking-field">
+          <label for="booking-phone">Phone number</label>
+          <input id="booking-phone" data-required type="tel" placeholder="+234 800 000 0000" oninput="validateBookingForm()" />
+          <div class="field-error" id="booking-phone-error">Please enter a valid phone number.</div>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="booking-field">
+        <label for="booking-name">Full name</label>
+        <input id="booking-name" data-required type="text" placeholder="Contestant full name" oninput="validateBookingForm()" />
+        <div class="field-error" id="booking-name-error">Please enter the contestant's full name.</div>
+      </div>
+      <div class="booking-field-grid">
+        <div class="booking-field">
+          <label for="booking-dob">Date of birth</label>
+          <input id="booking-dob" data-required type="date" oninput="validateBookingForm()" />
+        </div>
+        <div class="booking-field">
+          <label for="booking-origin">State of origin</label>
+          <input id="booking-origin" data-required type="text" placeholder="e.g. Lagos" oninput="validateBookingForm()" />
+        </div>
+      </div>
+      <div class="booking-field-grid">
+        <div class="booking-field">
+          <label for="booking-occupation">Occupation</label>
+          <input id="booking-occupation" data-required type="text" placeholder="e.g. Student" oninput="validateBookingForm()" />
+        </div>
+        <div class="booking-field">
+          <label for="booking-language">Language spoken</label>
+          <input id="booking-language" data-required type="text" placeholder="e.g. Yoruba, English" oninput="validateBookingForm()" />
+        </div>
+      </div>
+      <div class="booking-field">
+        <label for="booking-address">Residential address</label>
+        <textarea id="booking-address" data-required rows="3" placeholder="Current residential address" oninput="validateBookingForm()"></textarea>
+      </div>
+      <div class="booking-field">
+        <label for="booking-email">Email address</label>
+        <input id="booking-email" data-required type="email" placeholder="you@example.com" oninput="validateBookingForm()" />
+        <div class="field-error" id="booking-email-error">Please enter a valid email address.</div>
+      </div>
+      <div class="booking-field">
+        <label for="booking-phone">Contact phone no(s)</label>
+        <input id="booking-phone" data-required type="tel" placeholder="+234 800 000 0000" oninput="validateBookingForm()" />
+        <div class="field-error" id="booking-phone-error">Please enter a valid phone number.</div>
+      </div>
+      <div class="booking-field">
+        <label for="booking-sponsor">Sponsor status</label>
+        <select id="booking-sponsor" onchange="validateBookingForm()">
+          <option value="">Select sponsor status</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="before-final">Before grand finale</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label for="booking-certificate">Certificate</label>
+        <select id="booking-certificate" onchange="validateBookingForm()">
+          <option value="">Select certificate</option>
+          <option value="ssce">SSCE</option>
+          <option value="ond">OND</option>
+          <option value="hnd">HND</option>
+          <option value="bsc">BS.C</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label for="booking-other-certificate">Others specify</label>
+        <input id="booking-other-certificate" type="text" placeholder="Other certificate" oninput="validateBookingForm()" />
+      </div>
+      <div class="booking-field">
+        <label for="booking-pageant-history">Pageant experience</label>
+        <select id="booking-pageant-history" onchange="validateBookingForm()">
+          <option value="">Select an option</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label for="booking-contests">If yes, name of contest(s)</label>
+        <input id="booking-contests" type="text" placeholder="Contest names" oninput="validateBookingForm()" />
+      </div>
+      <div class="booking-field-grid">
+        <div class="booking-field">
+          <label for="booking-title-status">Title winner?</label>
+          <select id="booking-title-status" onchange="validateBookingForm()">
+            <option value="">Select an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="booking-field">
+          <label for="booking-title-won">If yes, title won</label>
+          <input id="booking-title-won" type="text" placeholder="Title won" oninput="validateBookingForm()" />
+        </div>
+      </div>
+      <div class="booking-field">
+        <label for="booking-director">Name of state director</label>
+        <input id="booking-director" type="text" placeholder="Person who collected the form" oninput="validateBookingForm()" />
+      </div>
+    `;
+  }
+
+  function renderPrizeSection(eventData) {
+    const section = document.getElementById('prize-section');
+    if (!section) return;
+
+    if (!eventData.prizes?.length) {
+      section.classList.remove('visible');
+      section.innerHTML = '';
+      return;
+    }
+
+    section.classList.add('visible');
+    const [featuredPrize, ...otherPrizes] = eventData.prizes;
+    section.innerHTML = `
+      <div class="prize-kicker">WHAT YOU WIN</div>
+      <div class="prize-title">${eventData.prizeTitle || 'Prizes to be won'}</div>
+      ${eventData.prizeCopy ? `<p class="prize-copy">${eventData.prizeCopy}</p>` : ''}
+      <div class="prize-layout">
+        <div class="prize-feature">
+          <div class="prize-feature-top">
+            <span class="prize-feature-label">Grand prize</span>
+            <span class="prize-feature-number">01</span>
+          </div>
+          <div>
+            <div class="prize-feature-name">${featuredPrize}</div>
+            <div class="prize-feature-note">${eventData.prizeNotes?.[0] || 'Prize package benefit'}</div>
+          </div>
+        </div>
+        <div class="prize-list">
+          ${otherPrizes.map((prize, index) => `
+            <div class="prize-item">
+              <span class="prize-number">${String(index + 2).padStart(2, '0')}</span>
+              <div>
+                <div class="prize-name">${prize}</div>
+                <div class="prize-note">${eventData.prizeNotes?.[index + 1] || 'Prize package benefit'}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
   function changeBookingQty(btn, delta) {
     const stepper = btn.parentElement;
     const card = stepper.closest('.booking-ticket-type');
@@ -1845,6 +2319,12 @@
   }
 
   function updateBookingSummary() {
+    const isPageant = document.querySelector('.booking-form')?.dataset.formType === 'pageant';
+    if (isPageant) {
+      document.getElementById('booking-submit').textContent = 'Submit application';
+      return;
+    }
+
     const summary = document.getElementById('booking-summary');
     const empty = document.getElementById('booking-empty');
     summary.querySelectorAll('.booking-line').forEach(row => row.remove());
@@ -1874,17 +2354,20 @@
   }
 
   function validateBookingForm() {
-    const name = document.getElementById('booking-name').value.trim();
-    const email = document.getElementById('booking-email').value.trim();
-    const phone = document.getElementById('booking-phone').value.trim();
+    const isPageant = document.querySelector('.booking-form')?.dataset.formType === 'pageant';
+    const requiredFields = [...document.querySelectorAll('#booking-applicant-fields [data-required]')];
+    const requiredFieldsValid = requiredFields.every(field => field.value.trim());
+    const name = document.getElementById('booking-name')?.value.trim() || '';
+    const email = document.getElementById('booking-email')?.value.trim() || '';
+    const phone = document.getElementById('booking-phone')?.value.trim() || '';
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const phoneValid = phone.length >= 7;
     const terms = document.getElementById('booking-terms').checked;
-    const hasTickets = [...document.querySelectorAll('.booking-ticket-type:not(.sold-out)')]
+    const hasTickets = isPageant || [...document.querySelectorAll('.booking-ticket-type:not(.sold-out)')]
       .some(card => parseInt(card.querySelector('.qty-value').textContent, 10) > 0);
 
-    document.getElementById('booking-submit').disabled = !(name && emailValid && phoneValid && terms && hasTickets);
-    return { name, emailValid, phoneValid };
+    document.getElementById('booking-submit').disabled = !(requiredFieldsValid && emailValid && phoneValid && terms && hasTickets);
+    return { name, emailValid, phoneValid, requiredFields };
   }
 
   function submitBooking() {
@@ -1892,7 +2375,7 @@
     document.getElementById('booking-name-error').style.display = state.name ? 'none' : 'block';
     document.getElementById('booking-email-error').style.display = state.emailValid ? 'none' : 'block';
     document.getElementById('booking-phone-error').style.display = state.phoneValid ? 'none' : 'block';
-    document.getElementById('booking-name').classList.toggle('error', !state.name);
+    state.requiredFields.forEach(field => field.classList.toggle('error', !field.value.trim()));
     document.getElementById('booking-email').classList.toggle('error', !state.emailValid);
     document.getElementById('booking-phone').classList.toggle('error', !state.phoneValid);
     if (document.getElementById('booking-submit').disabled) return;
@@ -1919,6 +2402,21 @@
       const divider = title && title.previousElementSibling;
       if (title) title.style.display = 'none';
       if (divider && divider.classList.contains('divider')) divider.style.display = 'none';
+    });
+  }
+
+  function applyPageantSectionVisibility(eventData) {
+    const shouldHide = eventData.formType === 'pageant';
+    const highlights = document.querySelector('.highlights');
+    const highlightsTitle = highlights?.previousElementSibling;
+    const highlightsDivider = highlights?.nextElementSibling;
+    const eventInfo = [...document.querySelectorAll('.info-card')]
+      .find(card => card.querySelector('.info-card-title')?.textContent.trim() === 'Event info');
+    const lineup = [...document.querySelectorAll('.info-card')]
+      .find(card => card.querySelector('.info-card-title')?.textContent.trim() === 'Lineup');
+
+    [highlights, highlightsTitle, highlightsDivider, eventInfo, lineup].forEach(node => {
+      if (node) node.style.display = shouldHide ? 'none' : '';
     });
   }
 
@@ -1978,6 +2476,7 @@
     highlightLabels[2].textContent = 'Songs performed';
 
     document.querySelector('.about-text').innerHTML = eventData.about;
+    renderPrizeSection(eventData);
 
     const infoValues = document.querySelectorAll('.info-row-value');
     infoValues[0].textContent = eventData.date;
@@ -2034,27 +2533,29 @@
     const highlightNums = document.querySelectorAll('.highlight-num');
     const highlightLabels = document.querySelectorAll('.highlight-lbl');
     highlightNums[0].textContent = eventData.seatsLeft;
-    highlightLabels[0].textContent = 'Seats left';
+    highlightLabels[0].textContent = eventData.firstHighlightLabel || 'Seats left';
     highlightNums[1].textContent = eventData.tiers;
     highlightLabels[1].textContent = 'Ticket tiers';
     highlightNums[2].textContent = eventData.songs;
-    highlightLabels[2].textContent = 'Expected songs';
+    highlightLabels[2].textContent = eventData.thirdHighlightLabel || 'Expected songs';
 
     document.querySelector('.about-text').innerHTML = eventData.about;
+    renderPrizeSection(eventData);
+    applyPageantSectionVisibility(eventData);
 
     document.querySelectorAll('.section-title')[3].textContent = 'What to expect';
     const reviewCards = document.querySelectorAll('.review-card');
     reviewCards[0].innerHTML = `
-      <div class="review-header"><div class="review-avatar">LV</div><div><div class="review-name">Live performance</div><div class="review-date">Main stage</div></div></div>
-      <p class="review-text">A focused headline set with production, lighting, and transitions shaped around this event's main artist.</p>
+      <div class="review-header"><div class="review-avatar">LV</div><div><div class="review-name">${eventData.expectationTitle1 || 'Live performance'}</div><div class="review-date">${eventData.expectationDate1 || 'Main stage'}</div></div></div>
+      <p class="review-text">${eventData.expectationText1 || "A focused headline set with production, lighting, and transitions shaped around this event's main artist."}</p>
     `;
     reviewCards[1].innerHTML = `
-      <div class="review-header"><div class="review-avatar">DJ</div><div><div class="review-name">Warm-up sets</div><div class="review-date">Before headline</div></div></div>
-      <p class="review-text">DJs and openers keep the room active before the headline performance begins.</p>
+      <div class="review-header"><div class="review-avatar">DJ</div><div><div class="review-name">${eventData.expectationTitle2 || 'Warm-up sets'}</div><div class="review-date">${eventData.expectationDate2 || 'Before headline'}</div></div></div>
+      <p class="review-text">${eventData.expectationText2 || 'DJs and openers keep the room active before the headline performance begins.'}</p>
     `;
     reviewCards[2].innerHTML = `
-      <div class="review-header"><div class="review-avatar">TK</div><div><div class="review-name">Ticket access</div><div class="review-date">Entry zones</div></div></div>
-      <p class="review-text">Use your booking confirmation and arrive early enough for check-in, security, and venue access.</p>
+      <div class="review-header"><div class="review-avatar">TK</div><div><div class="review-name">${eventData.expectationTitle3 || 'Ticket access'}</div><div class="review-date">${eventData.expectationDate3 || 'Entry zones'}</div></div></div>
+      <p class="review-text">${eventData.expectationText3 || 'Use your booking confirmation and arrive early enough for check-in, security, and venue access.'}</p>
     `;
 
     const infoValues = document.querySelectorAll('.info-row-value');
@@ -2063,6 +2564,7 @@
     infoValues[2].textContent = eventData.venue;
     infoValues[3].textContent = eventData.price;
     infoValues[4].textContent = eventData.capacity;
+    document.querySelectorAll('.info-row-label')[3].textContent = eventData.priceLabel || 'Ticket price';
     document.querySelectorAll('.info-row-label')[4].textContent = 'Capacity';
     document.querySelector('.map-address').textContent = eventData.venue;
     document.querySelector('.map-link').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(eventData.venue)}`;
@@ -2080,6 +2582,7 @@
     document.querySelector('.hero-ticket-btn').href = '#';
     document.querySelector('.btn-upcoming').href = '#';
     renderBookingTickets(eventKey);
+    renderBookingApplicantFields(eventData);
     updateBookingSummary();
     validateBookingForm();
     hideUpcomingContentSections();
