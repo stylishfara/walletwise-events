@@ -2756,6 +2756,16 @@
         if (heading) heading.style.display = 'none';
         if (divider?.classList.contains('divider')) divider.style.display = 'none';
       }
+
+      // Hide photo gallery section and its heading + divider
+      const gallery = document.querySelector('.gallery');
+      if (gallery) {
+        const heading = gallery.previousElementSibling;
+        const divider = heading?.previousElementSibling;
+        gallery.style.display = 'none';
+        if (heading) heading.style.display = 'none';
+        if (divider?.classList.contains('divider')) divider.style.display = 'none';
+      }
     }
     document.querySelector('.btn-upcoming').href = '#';
     renderPastEvent(pastData);
