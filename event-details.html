@@ -2745,6 +2745,10 @@
       // Hide stat pills
       document.querySelector('.hero-stats')?.style.setProperty('display', 'none');
 
+      // Hide event info card in sidebar
+      const eventInfoCard = document.querySelector('.sidebar .info-card');
+      if (eventInfoCard) eventInfoCard.style.display = 'none';
+
       // Hide event highlights section
       const highlights = document.querySelector('.highlights');
       if (highlights) {
