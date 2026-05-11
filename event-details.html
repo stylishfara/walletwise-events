@@ -1129,14 +1129,19 @@
     }
 
     .is-past-pageant .booking-form {
-      display: flex !important;
-      flex-direction: column;
-      justify-content: center;
+      display: block !important;
+      position: relative;
+      pointer-events: none;
       flex: 1;
     }
 
-    .is-past-pageant .booking-form > *:not(.booking-closed-banner) {
-      display: none !important;
+    .is-past-pageant .booking-form::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.82);
+      border-radius: var(--radius-card);
+      z-index: 10;
     }
 
     .booking-closed-banner {
@@ -1145,11 +1150,16 @@
 
     .is-past-pageant .booking-closed-banner {
       display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
       flex-direction: column;
       align-items: center;
       gap: 8px;
       text-align: center;
-      padding: 32px 16px;
+      white-space: nowrap;
     }
 
     .booking-closed-banner-title {
@@ -1443,8 +1453,6 @@
         <div class="highlight-lbl">Songs performed</div>
       </div>
     </div>
-
-    <div class="divider"></div>
 
     <!-- About -->
     <div class="section-title">About this event</div>
