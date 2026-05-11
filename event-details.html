@@ -1850,35 +1850,54 @@
       ]
     },
     'mbgn-2025': {
-      title: 'Most Beautiful<br>Girl in Nigeria',
-      documentTitle: 'Most Beautiful Girl in Nigeria 2025 · WalletWise Events',
+      title: 'Miss Indigenous<br>Nigeria 2025',
+      documentTitle: 'Miss Indigenous Nigeria 2025 · WalletWise Events',
       badge: 'Past event · Sat 19 Apr 2025',
       image: 'woman.png',
-      alt: 'Most Beautiful Girl in Nigeria 2025',
-      venueShort: 'Eko Hotel, Victoria Island',
-      time: '5:00 PM – 10:00 PM',
+      alt: 'Miss Indigenous Nigeria 2025',
+      venueShort: 'Transcorp Hilton, Abuja',
+      time: '6:00 PM – 10:30 PM',
       date: 'Saturday, 19 April 2025',
-      venue: 'Eko Hotel Grand Ballroom, Victoria Island, Lagos',
-      price: '₦5,000 · Sold out',
-      attendance: '1,800 people',
-      attended: '1,800',
-      rating: '4.7',
-      capacity: '1,800',
+      venue: 'Transcorp Hilton, Abuja',
+      price: '₦8,000 · Sold out',
+      attendance: '1,500 people',
+      attended: '1,500',
+      rating: '4.8',
+      capacity: '1,500',
       ticketsLabel: 'Attendees',
       ratingLabel: 'Event rating',
-      songs: '32',
-      thirdHighlightLabel: 'Contestants',
+      songs: '8',
+      thirdHighlightLabel: 'Show segments',
       formType: 'pageant',
-      about: `The 2025 Most Beautiful Girl in Nigeria pageant brought together 36 finalists from across the country for a full evening of runway presentations, talent showcases, and the final crowning ceremony at the Eko Hotel Grand Ballroom.<br><br>The event drew a capacity crowd, with live music performances between segments and a high-production stage show that highlighted culture, confidence, and representation.`,
+      priceLabel: 'Form price',
+      organizer: 'Packaged by Ejanla 1 of Abuja',
+      theme: 'More Than Just a Pageant',
+      prizeTitle: 'Star Prize Package',
+      prizeCopy: '',
+      prizes: [
+        'Official Car',
+        'Slot for Miss Universe Ireland',
+        '1 Year Mobile Subscription',
+        'Brand Endorsements',
+        'Plot of Land'
+      ],
+      prizeNotes: [
+        'Grand winner mobility package',
+        'International pageant pathway',
+        'Full mobile plan coverage',
+        'Paid campaign and ambassador opportunities',
+        'Asset award for the crowned queen'
+      ],
+      about: `Miss Indigenous Nigeria returned for its 9th Edition in 2025, packaged by Ejanla 1 of Abuja. The grand finale took place at Transcorp Hilton, Abuja, under the theme <em>More Than Just a Pageant</em>.<br><br>The event celebrated culture, confidence, representation, and stage presence through contestant showcases, runway moments, guest performances, and a final crowning ceremony.`,
       artists: [
-        ['woman.png', 'MBGN 2025 Winner', 'Grand winner'],
-        ['h3.jpeg', 'First Runner-Up', 'Runner-up'],
-        ['h1.jpeg', 'Second Runner-Up', 'Runner-up'],
-        ['TONIGHT-@temsbaby.jpg', 'Event host', 'MC'],
-        ['h2.jpeg', 'Guest performer', 'Live performance'],
-        ['1920x1072mv.jpg', 'Judges panel', 'Judging committee'],
-        ['shalli.png', 'Stylist team', 'Wardrobe'],
-        ['burna-boy-apple-music-live-2023-billboard-1548.jpg', 'Production crew', 'Stage production']
+        ['h3.jpeg', 'Miss Indigenous Nigeria', 'Main pageant'],
+        ['h1.jpeg', 'Contestants', 'Finalists'],
+        ['TONIGHT-@temsbaby.jpg', 'Guest performer', 'Interlude performance'],
+        ['shalli.png', 'Host', 'Stage host'],
+        ['h2.jpeg', 'Judging panel', 'Judges'],
+        ['1920x1072mv.jpg', 'Production team', 'Stage production'],
+        ['h1.jpeg', 'Runway segment', 'Fashion showcase'],
+        ['h3.jpeg', 'Crowning moment', 'Finale']
       ]
     }
   };
@@ -2600,7 +2619,7 @@
     highlightNums[1].textContent = `${eventData.rating} / 5`;
     highlightLabels[1].textContent = eventData.ratingLabel;
     highlightNums[2].textContent = eventData.songs;
-    highlightLabels[2].textContent = 'Songs performed';
+    highlightLabels[2].textContent = eventData.thirdHighlightLabel || 'Songs performed';
 
     document.querySelector('.about-text').innerHTML = eventData.about;
     renderPrizeSection(eventData);
