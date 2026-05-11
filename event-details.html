@@ -644,6 +644,10 @@
 
     .map-details {
       padding: 12px 16px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .map-title {
@@ -657,7 +661,6 @@
       font-size: 13px;
       line-height: 1.5;
       color: var(--gray-500);
-      margin-bottom: 12px;
     }
 
     .map-link {
@@ -1534,8 +1537,10 @@
         </div>
       </div>
       <div class="map-details">
-        <div class="map-title">Event location</div>
-        <div class="map-address">Eko Convention Centre, Victoria Island, Lagos</div>
+        <div>
+          <div class="map-title">Event location</div>
+          <div class="map-address">Eko Convention Centre, Victoria Island, Lagos</div>
+        </div>
         <a class="map-link" href="#" target="_blank" rel="noopener">Open in Maps →</a>
       </div>
     </div>
