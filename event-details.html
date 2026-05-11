@@ -1118,17 +1118,10 @@
 
     .is-past-pageant .booking-form {
       display: block;
-      position: relative;
-      pointer-events: none;
     }
 
-    .is-past-pageant .booking-form::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.82);
-      border-radius: var(--radius-card);
-      z-index: 10;
+    .is-past-pageant .booking-form > *:not(.booking-closed-banner) {
+      display: none !important;
     }
 
     .booking-closed-banner {
@@ -1137,15 +1130,11 @@
 
     .is-past-pageant .booking-closed-banner {
       display: flex;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 11;
       flex-direction: column;
       align-items: center;
       gap: 8px;
       text-align: center;
+      padding: 32px 16px;
     }
 
     .booking-closed-banner-title {
